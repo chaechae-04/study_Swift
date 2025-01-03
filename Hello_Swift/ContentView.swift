@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     // [["name", "album", "artist", "featuring"]]
-    let music_list: [[String]] =
+    let original_music_list: [[String]] =
                     [["tv off", "GNX", "Kendrick Lamar", "Lefty Gunplay"],
                      ["Still D.R.E.", "DRE_2001", "Dr. Dre", "Snoop Dogg"],
                      ["redrum" , "american_dream", "21 Savage", ""],
@@ -22,10 +22,17 @@ struct ContentView: View {
                      ["Dancing In The Flames", "Dancing_In_The_Flames_EP", "The Weekend", ""],
                      ["FE!N", "UTOPIA", "Travis Scott", "Playboy Carti"]]
     
+    
+    
+    @State private var music_list: [[String]]
     // Musci Click -> info
     @State private var music_info: [String] = ["", "", "", ""]
     @State private var selected_music_name: String = ""
-    @State private var search_music: String = ""
+    @State private var search_name: String = ""
+    
+    init() {
+        _music_list = State(initialValue: original_music_list)
+    }
     
     var body: some View {
         // VStack 1 Start Point
@@ -36,12 +43,18 @@ struct ContentView: View {
                 
                 // HStack 1 Start Point
                 HStack {
-                    Image(systemName: "music.note.list")
-                        .resizable()
-                        .frame(width: 25, height: 20, alignment: .leading)
-                        .padding(.leading, 40)
+                    Button {
+                        music_list = original_music_list
+                        search_name = ""
+                    } label: {
+                        Image(systemName: "music.note.list")
+                            .resizable()
+                            .frame(width: 25, height: 25, alignment: .leading)
+                            .padding(.leading, 40)
+                            .foregroundColor(.black)
+                    }
                     
-                    TextField("Search_music", text: $search_music)
+                    TextField("Search_music", text: $search_name)
                         .fontWeight(.bold)
                         .frame(maxWidth: .infinity, alignment: .trailing)
                         .frame(height: 30)
@@ -57,12 +70,20 @@ struct ContentView: View {
                     
                     // Button 1 Start Point
                     Button {
+                        if search_name.isEmpty {
+                            music_list = original_music_list
+                        } else {
+                            music_list = original_music_list.filter { music in
+                                music[0].localizedCaseInsensitiveContains(search_name)
+                            }
+                        }
                         // button action
                     } label: {
                         Image(systemName: "magnifyingglass")
                             .resizable()
                             .frame(width: 25, height: 25, alignment: .trailing)
                             .padding(.trailing, 30)
+                            .foregroundColor(.black)
                     }
                     // Button 1 End Point
                     
@@ -75,71 +96,7 @@ struct ContentView: View {
                 // VStack 2 Start Point
                 VStack {
                     
-                    // ForEach 1 Start Point
-                    ForEach(music_list, id: \.self) { info in
-                        
-                        // HStack 2 Start Point
-                        HStack {
-                            Image("Images/Albums/\(info[1])")
-                                .resizable()
-                                .frame(width: 75, height: 75)
-                                .clipShape(
-                                    RoundedRectangle(cornerRadius: 15)
-                                )
-                            
-                            // VStack 3 Start Point
-                            VStack(alignment: .leading, content: {
-                                Text("\(info[0])")
-                                    .font(.headline)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color("Colors/TextColor"))
-                                Text(info[3].isEmpty ? "\(info[2])" : "\(info[2]) / \(info[3])")
-                                    .font(.caption)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color("Colors/TextColor"))
-                            
-                            })
-                            // VStack 3 End Point
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            
-                            // Button 2 Start Point
-                            Button {
-                                
-                                selected_music_name = info[0]
-                                
-                                if selected_music_name == music_info[0] {
-                                    music_info = ["", "", "", ""]
-                                    selected_music_name = music_info[0]
-                                } else {
-                                    music_info = [info[0], info[1], info[2], info[3]]
-                                }
-                                
-                            } label: {
-                                Image(systemName: "waveform")
-                                    .resizable()
-                                    .frame(width: 40, height: 30)
-                                    .foregroundColor(selected_music_name == info[0] ? .red : .gray)
-                            }
-                            // Button 2 End Point
-                            
-                        }
-                        // HStack 2 End Point
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 70)
-                        .padding()
-                        .padding(.top, 0)
-                        .background(
-                            RoundedRectangle(cornerRadius: 15)
-                                .fill(Color("Colors/BoxColor"))
-                        )
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 15)
-                                .stroke(Color.gray, lineWidth: 1)
-                            
-                        )
-                        
-                    }
-                    // ForEach 1 End Point
+                    MusicListItem(music: music_list, selected_music_name: $selected_music_name, music_info: $music_info)
                     
                 }
                 // VStack 2 End Point
