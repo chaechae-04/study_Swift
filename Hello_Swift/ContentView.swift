@@ -24,8 +24,8 @@ struct ContentView: View {
     
     // Musci Click -> info
     @State private var music_info: [String] = ["", "", "", ""]
-    
     @State private var selected_music_name: String = ""
+    @State private var search_music: String = ""
     
     var body: some View {
         // VStack 1 Start Point
@@ -36,15 +36,36 @@ struct ContentView: View {
                 
                 // HStack 1 Start Point
                 HStack {
-                    Text("Icon")
-                        .frame(alignment: .leading)
-                        .padding(.leading, 30)
-                        .border(Color.black)
+                    Image(systemName: "music.note.list")
+                        .resizable()
+                        .frame(width: 25, height: 20, alignment: .leading)
+                        .padding(.leading, 40)
                     
-                    Text("Search Tab")
+                    TextField("Search_music", text: $search_music)
+                        .fontWeight(.bold)
                         .frame(maxWidth: .infinity, alignment: .trailing)
-                        .padding(.horizontal, 30)
-                        .border(Color.black)
+                        .frame(height: 30)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 15)
+                                .stroke(Color.black, lineWidth: 1)
+                                .padding(.leading, -10)
+                                .padding(.trailing, -10)
+                        )
+                        .padding(.leading, 40)
+                        .padding(.trailing, 10)
+                        
+                    
+                    // Button 1 Start Point
+                    Button {
+                        // button action
+                    } label: {
+                        Image(systemName: "magnifyingglass")
+                            .resizable()
+                            .frame(width: 25, height: 25, alignment: .trailing)
+                            .padding(.trailing, 30)
+                    }
+                    // Button 1 End Point
+                    
                 }
                 // HStack 1 End Point
                 .frame(maxWidth: .infinity)
@@ -81,21 +102,25 @@ struct ContentView: View {
                             // VStack 3 End Point
                             .frame(maxWidth: .infinity, alignment: .leading)
                             
+                            // Button 2 Start Point
                             Button {
                                 
-                                if selected_music_name == "" {
-                                    music_info = [info[0], info[1], info[2], info[3]]
-                                } else {
+                                selected_music_name = info[0]
+                                
+                                if selected_music_name == music_info[0] {
                                     music_info = ["", "", "", ""]
+                                    selected_music_name = music_info[0]
+                                } else {
+                                    music_info = [info[0], info[1], info[2], info[3]]
                                 }
                                 
-                                selected_music_name = music_info[0]
                             } label: {
                                 Image(systemName: "waveform")
                                     .resizable()
                                     .frame(width: 40, height: 30)
                                     .foregroundColor(selected_music_name == info[0] ? .red : .gray)
                             }
+                            // Button 2 End Point
                             
                         }
                         // HStack 2 End Point
@@ -137,20 +162,19 @@ struct ContentView: View {
                         )
                     
                     // VStack 5 Start Point
-                    VStack {
+                    VStack(alignment: .leading, content: {
                         Text("\(music_info[0])")
-                            .frame(maxWidth: .infinity, alignment: .leading)
                             .font(.headline)
                             .fontWeight(.bold)
                             .foregroundColor(Color("Colors/TextColor"))
                         Text(music_info[3].isEmpty ? "\(music_info[2])" : "\(music_info[2]) / \(music_info[3])")
-                            .frame(maxWidth: .infinity, alignment: .leading)
                             .font(.caption)
                             .fontWeight(.bold)
                             .foregroundColor(Color("Colors/TextColor"))
-                        
-                    }
+                    
+                    })
                     // VStack 5 End Point
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     
                 }
                 // HStack 3 End Point
