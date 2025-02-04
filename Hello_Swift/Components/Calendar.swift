@@ -8,23 +8,27 @@
 import SwiftUI
 
 struct MyCalendar: View {
-    @State private var currenDate = Date()
+    @State private var currentDate = {
+        var components = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+        components.year = (components.year ?? 0) + 1
+        return Calendar.current.date(from: components) ?? Date()
+    }()
     let geometry: GeometryProxy
     
     var body: some View {
         TabView {
             ForEach(-12...12, id: \.self) { month in
-                if let date = Calendar.current.date(byAdding: .month, value: month, to: Date()) {
+                if let date = Calendar.current.date(byAdding: .month, value: month, to: currentDate) {
                     MonthView(date: date, geometry: geometry)
                         .tag(month)
                 }
             }
         }
-#if os(iOS)
+        #if os(iOS)
         .tabViewStyle(.page(indexDisplayMode: .never))
-#else
+        #else
         .tabViewStyle(.automatic)
-#endif
+        #endif
     }
 }
 
@@ -41,9 +45,18 @@ struct MonthView: View {
                 .padding()
             
             LazyVGrid(columns: Array(repeating: GridItem(), count: 7)) {
-                ForEach(daysInMonth(), id: \.self) { day in
-                    if let day = day {
+                
+                ForEach(["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], id: \.self) { day in
+                    Text(day)
+                        .foregroundStyle(day == "Sun" ? Color("Colors/customDarkRed") : day == "Sat" ? Color("Colors/customDarkBlue") : .black)
+                        .font(.system(size: geometry.size.width / 25))
+                        .frame(maxWidth: .infinity)
+                }
+                
+                ForEach(daysInMonth().indices, id: \.self) { index in
+                    if let day = daysInMonth()[index] {
                         Text("\(day)")
+                            .foregroundStyle((index % 7 == 0) ? Color("Colors/customDarkRed") : (index % 7 == 6) ? Color("Colors/customDarkBlue") : .black)
                             .frame(maxWidth: .infinity)
                             .fontWeight(.bold)
                             .padding(geometry.size.height / 70)
@@ -61,13 +74,16 @@ struct MonthView: View {
     
     var monthYearString: String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy년 M월"
+        formatter.dateFormat = "MMMM, yyyy"
         return formatter.string(from: date)
     }
     
     func daysInMonth() -> [Int?] {
-        let range = calendar.range(of: Calendar.Component.day, in: Calendar.Component.month, for: date)!
-        let firstWeekday = calendar.component(.weekday, from: date)
+        let components = calendar.dateComponents([.year, .month], from: date)
+        let firstDayOfMonth = calendar.date(from: components)!
+        
+        let range = calendar.range(of: .day, in: .month, for: firstDayOfMonth)!
+        let firstWeekday = calendar.component(.weekday, from: firstDayOfMonth)
         
         var days: [Int?] = Array(repeating: nil, count: firstWeekday - 1)
         days += (1...range.count).map { $0 }

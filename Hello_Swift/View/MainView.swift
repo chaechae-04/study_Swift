@@ -17,18 +17,18 @@ struct MainView: View {
             VStack {
                 /* 상단 아이콘 및 프로필 */
                 Header(isIconActive: $isIconActive, geometry: geometry)
-                    .border(.red)
+//                    .border(.red)
                 
                 MyCalendar(geometry: geometry)
                     .frame(width: geometry.size.width, height: geometry.size.height / 2)
                     .padding(.top, geometry.size.height / 50)
-                    .border(.blue)
+//                    .border(.blue)
                 
                 Spacer()
                 
                 /* 하단 메뉴 */
                 Footer(geometry: geometry)
-                    .border(.green)
+//                    .border(.green)
                 
             }
             .padding(.bottom, geometry.size.height / 80)
