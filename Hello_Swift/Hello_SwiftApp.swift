@@ -15,15 +15,17 @@ struct Hello_SwiftApp: App {
     var body: some Scene {
         WindowGroup {
             
-            if showingSplash {
+            ZStack {
+                MainView()
+                    .opacity(showingSplash ? 0 : 1)
+                    .animation(.easeInOut(duration: 0.8), value: showingSplash)
+                
                 SplashView()
+                    .opacity(showingSplash ? 1 : 0)
+                    .animation(.easeInOut(duration: 0.8), value: showingSplash)
                     .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                            withAnimation { self.showingSplash = false }
-                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { showingSplash = false }
                     }
-            } else {
-                ContentView()
             }
             
         }

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		E489EC362D520CB500D07049 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489EC352D520CB500D07049 /* SplashView.swift */; };
+		E489EC382D52126100D07049 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489EC372D52126100D07049 /* MainView.swift */; };
+		E489EC3B2D52245B00D07049 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489EC3A2D52245A00D07049 /* Header.swift */; };
+		E489EC3D2D52246300D07049 /* Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489EC3C2D52246300D07049 /* Footer.swift */; };
+		E489EC3F2D5226B900D07049 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489EC3E2D5226B900D07049 /* Calendar.swift */; };
 		E4E1456B2D26805A0092EFD5 /* Hello_SwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E1456A2D26805A0092EFD5 /* Hello_SwiftApp.swift */; };
 		E4E1456D2D26805A0092EFD5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E1456C2D26805A0092EFD5 /* ContentView.swift */; };
 		E4E1456F2D26805B0092EFD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4E1456E2D26805B0092EFD5 /* Assets.xcassets */; };
@@ -36,6 +40,10 @@
 
 /* Begin PBXFileReference section */
 		E489EC352D520CB500D07049 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		E489EC372D52126100D07049 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		E489EC3A2D52245A00D07049 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		E489EC3C2D52246300D07049 /* Footer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Footer.swift; sourceTree = "<group>"; };
+		E489EC3E2D5226B900D07049 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		E4E145672D26805A0092EFD5 /* Hello_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hello_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4E1456A2D26805A0092EFD5 /* Hello_SwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hello_SwiftApp.swift; sourceTree = "<group>"; };
 		E4E1456C2D26805A0092EFD5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +82,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E489EC392D52244E00D07049 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E489EC3A2D52245A00D07049 /* Header.swift */,
+				E489EC3C2D52246300D07049 /* Footer.swift */,
+				E489EC3E2D5226B900D07049 /* Calendar.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		E4E1455E2D26805A0092EFD5 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +115,7 @@
 		E4E145692D26805A0092EFD5 /* Hello_Swift */ = {
 			isa = PBXGroup;
 			children = (
+				E489EC392D52244E00D07049 /* Components */,
 				E4E145952D27D4200092EFD5 /* View */,
 				E4E1456A2D26805A0092EFD5 /* Hello_SwiftApp.swift */,
 				E4E1456C2D26805A0092EFD5 /* ContentView.swift */,
@@ -136,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				E489EC352D520CB500D07049 /* SplashView.swift */,
+				E489EC372D52126100D07049 /* MainView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -270,9 +290,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E489EC3D2D52246300D07049 /* Footer.swift in Sources */,
+				E489EC3B2D52245B00D07049 /* Header.swift in Sources */,
 				E4E1456D2D26805A0092EFD5 /* ContentView.swift in Sources */,
+				E489EC382D52126100D07049 /* MainView.swift in Sources */,
 				E4E1456B2D26805A0092EFD5 /* Hello_SwiftApp.swift in Sources */,
 				E489EC362D520CB500D07049 /* SplashView.swift in Sources */,
+				E489EC3F2D5226B900D07049 /* Calendar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
