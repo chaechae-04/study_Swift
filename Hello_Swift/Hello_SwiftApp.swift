@@ -9,9 +9,23 @@ import SwiftUI
 
 @main
 struct Hello_SwiftApp: App {
+    
+    @State private var showingSplash: Bool = true
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            
+            if showingSplash {
+                SplashView()
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                            withAnimation { self.showingSplash = false }
+                        }
+                    }
+            } else {
+                ContentView()
+            }
+            
         }
     }
 }
