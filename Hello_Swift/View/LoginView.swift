@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct StartView: View {
+struct LoginView: View {
     
     @State private var id: String = ""
     @State private var pw: String = ""
@@ -53,8 +53,30 @@ struct StartView: View {
                 .border(.red)
                 
                 /* Login, SignUp Button */
-                Group {
-                    Text("1")
+                VStack(spacing: 0) {
+                    Button {
+                        
+                    } label: {
+                        ZStack {
+                            Color.clear
+                                .contentShape(Rectangle())
+                            Text("Login")
+                        }
+                    }
+                    .frame(width: geometry.size.width * 0.55, height: geometry.size.height * 0.0875)
+                    .border(.blue)
+                    
+                    Button {
+                        
+                    } label: {
+                        ZStack {
+                            Color.clear
+                                .contentShape(Rectangle())
+                            Text("SignUp")
+                        }
+                    }
+                    .frame(width: geometry.size.width * 0.55, height: geometry.size.height * 0.0875)
+                    .border(.blue)
                 }
                 .frame(width: geometry.size.width * 0.55, height: geometry.size.height * 0.175)
                 .border(.red)
@@ -70,5 +92,5 @@ struct StartView: View {
 }
 
 #Preview {
-    StartView()
+    LoginView()
 }

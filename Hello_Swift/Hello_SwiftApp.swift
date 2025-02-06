@@ -33,7 +33,7 @@ struct Hello_SwiftApp: App {
                     if isLoggedIn {
                         MainView()
                     } else {
-                        StartView()
+                        LoginView()
                     }
                 }
                 .opacity(showingSplash ? 0 : 1)

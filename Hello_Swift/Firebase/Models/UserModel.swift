@@ -9,12 +9,14 @@ import Foundation
 
 struct UserModel: Codable {
     let id: String
+    let email: String
     let password: String
     let name: String
     let birthday: Date
     
-    init(id: String, password: String, name: String, birthday: Date) {
+    init(id: String, email: String, password: String, name: String, birthday: Date) {
         self.id = id
+        self.email = email
         self.password = password
         self.name = name
         self.birthday = birthday
@@ -22,6 +24,7 @@ struct UserModel: Codable {
     
     enum CodingKeys: String, CodingKey {
         case id
+        case email
         case password
         case name
         case birthday
@@ -30,6 +33,7 @@ struct UserModel: Codable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(String.self, forKey: .id)
+        email = try container.decode(String.self, forKey: .email)
         password = try container.decode(String.self, forKey: .password)
         name = try container.decode(String.self, forKey: .name)
         
