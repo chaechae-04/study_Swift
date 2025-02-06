@@ -13,18 +13,22 @@ struct SplashView: View {
             Image(systemName: "sun.haze")
                 .resizable()
                 .scaledToFit()
-                .frame(width: geometry.size.width * 0.4, height: geometry.size.height * 0.2)
-                .position(x: geometry.size.width / 2, y: geometry.size.height / 2.75)
+                .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                .position(x: geometry.size.width / 2, y: UIScreen.main.bounds.height / 3)
+                .foregroundStyle(Color("Colors/customDarkRed"))
+            
             Text("Splash View")
                 .fontWeight(.bold)
-                .font(.system(size: geometry.size.width / 15))
-                .frame(width: geometry.size.width, height: 0)
-                .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
+                .font(.system(size: UIScreen.main.bounds.width / 15))
+                .frame(width: UIScreen.main.bounds.width, height: 0)
+                .position(x: geometry.size.width / 2, y: UIScreen.main.bounds.height / 2)
+                .foregroundStyle(Color("Colors/customGray"))
         }
         .padding()
+//        .background(Color("Colors/customWhite"))
     }
 }
 
-//#Preview {
-//    SplashView()
-//}
+#Preview {
+    SplashView()
+}

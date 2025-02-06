@@ -10,16 +10,16 @@ import SwiftUI
 struct PieChart: View {
     
     @State private var selectedCategory: String?
-    @State private var currentRate: Double = 72.5       // 초기값 설정
-    private let completionRate: Double = 72.5           // 동일한 초기값
+    @State private var currentRate: Double = 75       // 초기값 설정
+    private let completionRate: Double = 75           // 동일한 초기값
     
     let geometry: GeometryProxy
     
     /* TEMP */
     let categories = [
-        ("카테고리1", 0.3, Color.green),
-        ("공부", 0.5, Color.blue),
-        ("카테고리3", 0.2, Color.orange)
+        ("카테고리1", 0.225, Color.green),
+        ("공부", 0.375, Color.blue),
+        ("카테고리3", 0.150, Color.orange)
     ]
     
     private func animateToRate(_ category: (String, Double, Color)) {

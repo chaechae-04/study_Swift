@@ -27,7 +27,13 @@ class UserService: ObservableObject {
     }
     
     func getUser(id: String) async throws -> UserModel? {
+        
+        if id.isEmpty { throw UserError.invalidId }
+        
         let document = try await db.collection("users").document(id).getDocument()
+        
+        if !document.exists { throw UserError.invalidId }
+        
         guard let data = document.data() else { return nil }
         
         return UserModel(

@@ -14,10 +14,13 @@ struct LoginView: View {
     @State private var showSignUp: Bool = false
     @State private var showMain: Bool = true
     
+    @State private var errorType: String = ""
     @State private var errorMessage: String = ""
     
     @State private var id: String = ""
     @State private var pw: String = ""
+    
+    @State private var showAlert: Bool = false
     
     var body: some View {
         if showMain {
@@ -28,36 +31,43 @@ struct LoginView: View {
                     Group {
                         Text("icon")
                     }
-                    .frame(width: geometry.size.width * 0.85, height: geometry.size.height * 0.1)
+                    .frame(width: UIScreen.main.bounds.width * 0.85, height: UIScreen.main.bounds.height * 0.1)
                     .border(.red)
                     
                     /* ID, PW Text Field */
                     Group {
                         Text("login")
                     }
-                    .frame(width: geometry.size.width * 0.85, height: geometry.size.height * 0.1)
+                    .frame(width: UIScreen.main.bounds.width * 0.85, height: UIScreen.main.bounds.height * 0.1)
                     .border(.red)
                     
                     Group {
                         VStack(spacing: 0) {
                             HStack() {
                                 TextField("ID", text: $id)
-                                    .font(.system(size: geometry.size.width * 0.06, weight: .bold))
-                                    .padding(.leading, geometry.size.width * 0.05)
+                                    .font(.system(size: UIScreen.main.bounds.width * 0.06, weight: .bold))
+                                    .padding(.leading, UIScreen.main.bounds.width * 0.05)
                             }
-                            .frame(width: geometry.size.width * 0.85, height: geometry.size.height * 0.1, alignment: .leading)
+                            .frame(width: UIScreen.main.bounds.width * 0.85, height: UIScreen.main.bounds.height * 0.1, alignment: .leading)
                             .background(.white)
                             .border(.blue)
                             HStack {
                                 TextField("PW", text: $pw)
-                                    .font(.system(size: geometry.size.width * 0.06, weight: .bold))
-                                    .padding(.leading, geometry.size.width * 0.05)
+                                    .font(.system(size: UIScreen.main.bounds.width * 0.06, weight: .bold))
+                                    .padding(.leading, UIScreen.main.bounds.width * 0.05)
                             }
-                            .frame(width: geometry.size.width * 0.85, height: geometry.size.height * 0.1, alignment: .leading)
+                            .frame(width: UIScreen.main.bounds.width * 0.85, height: UIScreen.main.bounds.height * 0.1, alignment: .leading)
                             .border(.blue)
                         }
+                        .alert(isPresented: $showAlert) {
+                            Alert(
+                                title: Text(errorType),
+                                message: Text(errorMessage),
+                                dismissButton: .default(Text("OK"))
+                            )
+                        }
                     }
-                    .frame(width: geometry.size.width * 0.85, height: geometry.size.height * 0.2)
+                    .frame(width: UIScreen.main.bounds.width * 0.85, height: UIScreen.main.bounds.height * 0.2)
                     .border(.red)
                     
                     /* Login, SignUp Button */
@@ -70,10 +80,13 @@ struct LoginView: View {
                                     UserDefaultsManager.shared.saveUser(user)
                                     showMain = false
                                 } catch let error as UserError {
-                                    print("Error: \(error)")
+                                    errorType = "Login Error"
+                                    showAlert = true
                                     errorMessage = error.errorDescription ?? "로그인 중 오류가 발생했어요."
+                                    
                                 } catch {
-                                    print("Error: \(error)")
+                                    errorType = "Login Error"
+                                    showAlert = true
                                     errorMessage = "로그인 중 오류가 발생했어요."
                                 }
                             }
@@ -84,7 +97,7 @@ struct LoginView: View {
                                 Text("Login")
                             }
                         }
-                        .frame(width: geometry.size.width * 0.55, height: geometry.size.height * 0.0875)
+                        .frame(width: UIScreen.main.bounds.width * 0.55, height: UIScreen.main.bounds.height * 0.0875)
                         .border(.blue)
                         
                         /* SignUp */
@@ -97,21 +110,21 @@ struct LoginView: View {
                                 Text("SignUp")
                             }
                         }
-                        .frame(width: geometry.size.width * 0.55, height: geometry.size.height * 0.0875)
+                        .frame(width: UIScreen.main.bounds.width * 0.55, height: UIScreen.main.bounds.height * 0.0875)
                         .fullScreenCover(isPresented: $showSignUp) {
                             SignUpView()
                         }
                         .border(.blue)
                         
                     }
-                    .frame(width: geometry.size.width * 0.55, height: geometry.size.height * 0.175)
+                    .frame(width: UIScreen.main.bounds.width * 0.55, height: UIScreen.main.bounds.height * 0.175)
                     .border(.red)
                     
                     Spacer()
                     
                 }
-                .frame(width: geometry.size.width, height: geometry.size.height)
-                .padding(.top, geometry.size.height * 0.125)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                .padding(.top, UIScreen.main.bounds.height * 0.125)
                 .border(.black)
             }
         } else {
