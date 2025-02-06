@@ -11,8 +11,10 @@ struct Header: View {
     
     @State private var iconName: String = "sun.haze"
     @State private var isIconActive: Bool = false
+    @State private var showSideMenu: Bool = false
     
     let geometry: GeometryProxy
+    @Binding var isLoggedIn: Bool
     
     var body: some View {
         HStack {
@@ -36,13 +38,13 @@ struct Header: View {
             
             Spacer()
             
-            Text("User")
+            Text(UserDefaultsManager.shared.getCurrentUser()?.name ?? "User")
                 .fontWeight(.bold)
                 .font(.system(size: geometry.size.width / 18))
                 .padding(.top, geometry.size.height / 70)
             /* 프로필 */
             Button(action: {
-                
+                showSideMenu.toggle()
             }) {
                 Image(systemName: "person.crop.circle")
                     .resizable()
@@ -52,8 +54,31 @@ struct Header: View {
                     .foregroundColor(.black)
             }
         }
-        
+        .sheet(isPresented: $showSideMenu) {
+            VStack {
+                Text("프로필")
+                    
+                Button(action: {
+                    withAnimation(.easeInOut(duration: 0.3)) {
+                        showSideMenu = false
+                    }
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        withAnimation(.easeInOut(duration: 0.3)) {
+                            isLoggedIn = false
+                            UserDefaultsManager.shared.clearUser()
+                        }
+                    }
+                }) {
+                    Text("Logout")
+                        .foregroundColor(.red)
+                }
+                Spacer()
+            }
+        }
     }
 }
 
-
+//#Preview {
+//    MainView()
+//}

@@ -18,6 +18,7 @@
 		E4700AD52D54DF16005374B3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = E4700AD42D54DF16005374B3 /* FirebaseFirestore */; };
 		E4700AD72D54E4AE005374B3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4700AD62D54E4AE005374B3 /* LoginView.swift */; };
 		E4700AD92D54E62D005374B3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E4700AD82D54E62D005374B3 /* FirebaseAuth */; };
+		E4700ADB2D54F090005374B3 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4700ADA2D54F090005374B3 /* SignUpView.swift */; };
 		E489EC362D520CB500D07049 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489EC352D520CB500D07049 /* SplashView.swift */; };
 		E489EC382D52126100D07049 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489EC372D52126100D07049 /* MainView.swift */; };
 		E489EC3B2D52245B00D07049 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489EC3A2D52245A00D07049 /* Header.swift */; };
@@ -58,6 +59,7 @@
 		E4700ACC2D54DAC2005374B3 /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
 		E4700ACF2D54DBCD005374B3 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		E4700AD62D54E4AE005374B3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		E4700ADA2D54F090005374B3 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		E489EC352D520CB500D07049 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		E489EC372D52126100D07049 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		E489EC3A2D52245A00D07049 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				E489EC352D520CB500D07049 /* SplashView.swift */,
 				E489EC372D52126100D07049 /* MainView.swift */,
 				E4700AD62D54E4AE005374B3 /* LoginView.swift */,
+				E4700ADA2D54F090005374B3 /* SignUpView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E489EC3D2D52246300D07049 /* Footer.swift in Sources */,
+				E4700ADB2D54F090005374B3 /* SignUpView.swift in Sources */,
 				E4700AB32D54AC9E005374B3 /* PieChart.swift in Sources */,
 				E489EC3B2D52245B00D07049 /* Header.swift in Sources */,
 				E4700AD72D54E4AE005374B3 /* LoginView.swift in Sources */,
@@ -550,6 +554,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Hello_Swift/Preview Content\"";
+				DEVELOPMENT_TEAM = 8ZB4U624MW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -567,7 +572,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "lee0su.Hello-Swift";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chaechae-04.hello-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -587,6 +592,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Hello_Swift/Preview Content\"";
+				DEVELOPMENT_TEAM = 8ZB4U624MW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -604,7 +610,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "lee0su.Hello-Swift";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chaechae-04.hello-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";

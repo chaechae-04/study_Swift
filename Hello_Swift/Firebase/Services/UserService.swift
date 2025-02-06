@@ -8,9 +8,11 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseCore
-import FirebaseAuth
+import Combine
 
-class UserService {
+class UserService: ObservableObject {
+    @Published var crrentUser: UserModel?
+    
     static let shared = UserService()
     private let db = Firestore.firestore()
     

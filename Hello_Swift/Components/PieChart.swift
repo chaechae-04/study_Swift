@@ -11,15 +11,15 @@ struct PieChart: View {
     
     @State private var selectedCategory: String?
     @State private var currentRate: Double = 72.5       // 초기값 설정
-    @State private var completionRate: Double = 72.5    // 동일한 초기값
+    private let completionRate: Double = 72.5           // 동일한 초기값
     
     let geometry: GeometryProxy
     
     /* TEMP */
     let categories = [
-        ("건강", 0.3, Color.green),
-        ("학습", 0.5, Color.blue),
-        ("재테크", 0.2, Color.orange)
+        ("카테고리1", 0.3, Color.green),
+        ("공부", 0.5, Color.blue),
+        ("카테고리3", 0.2, Color.orange)
     ]
     
     private func animateToRate(_ category: (String, Double, Color)) {
@@ -85,15 +85,19 @@ struct PieChart: View {
                     .font(.system(size: min(geometry.size.width, geometry.size.height) * 0.125, weight: .bold))
                 if let selected = selectedCategory {
                     Text(selected)
-                        .font(.title2)
-                        .foregroundColor(.primary)
+                        .font(.system(size: min(geometry.size.width, geometry.size.height) * 0.125, weight: .bold))
                         .transition(.scale.combined(with: .opacity))
+                        .onTapGesture {
+                            withAnimation {
+                                selectedCategory = nil
+                            }
+                        }
                 }
             }
         }
     }
 }
 
-#Preview {
-    MainView()
-}
+//#Preview {
+//    MainView()
+//}
