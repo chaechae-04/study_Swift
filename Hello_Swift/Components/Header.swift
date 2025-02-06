@@ -9,8 +9,9 @@ import SwiftUI
 
 struct Header: View {
     
-    @Binding var isIconActive: Bool
     @State private var iconName: String = "sun.haze"
+    @State private var isIconActive: Bool = false
+    
     let geometry: GeometryProxy
     
     var body: some View {
@@ -51,7 +52,7 @@ struct Header: View {
                     .foregroundColor(.black)
             }
         }
-        .frame(width: geometry.size.width, height: geometry.size.height / 10)
+        
     }
 }
 

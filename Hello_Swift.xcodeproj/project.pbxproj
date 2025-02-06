@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E4700AB32D54AC9E005374B3 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4700AB22D54AC9E005374B3 /* PieChart.swift */; };
 		E489EC362D520CB500D07049 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489EC352D520CB500D07049 /* SplashView.swift */; };
 		E489EC382D52126100D07049 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489EC372D52126100D07049 /* MainView.swift */; };
 		E489EC3B2D52245B00D07049 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489EC3A2D52245A00D07049 /* Header.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E4700AB22D54AC9E005374B3 /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
 		E489EC352D520CB500D07049 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		E489EC372D52126100D07049 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		E489EC3A2D52245A00D07049 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				E489EC3A2D52245A00D07049 /* Header.swift */,
 				E489EC3C2D52246300D07049 /* Footer.swift */,
 				E489EC3E2D5226B900D07049 /* Calendar.swift */,
+				E4700AB22D54AC9E005374B3 /* PieChart.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E489EC3D2D52246300D07049 /* Footer.swift in Sources */,
+				E4700AB32D54AC9E005374B3 /* PieChart.swift in Sources */,
 				E489EC3B2D52245B00D07049 /* Header.swift in Sources */,
 				E4E1456D2D26805A0092EFD5 /* ContentView.swift in Sources */,
 				E489EC382D52126100D07049 /* MainView.swift in Sources */,
@@ -477,6 +481,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -513,6 +518,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

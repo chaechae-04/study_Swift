@@ -29,6 +29,7 @@ struct MyCalendar: View {
         #else
         .tabViewStyle(.automatic)
         #endif
+        .padding()
     }
 }
 
@@ -46,10 +47,11 @@ struct MonthView: View {
             
             LazyVGrid(columns: Array(repeating: GridItem(), count: 7)) {
                 
-                ForEach(["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], id: \.self) { day in
+                ForEach(["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"], id: \.self) { day in
                     Text(day)
-                        .foregroundStyle(day == "Sun" ? Color("Colors/customDarkRed") : day == "Sat" ? Color("Colors/customDarkBlue") : .black)
-                        .font(.system(size: geometry.size.width / 25))
+                        .foregroundStyle(day.uppercased() == "SUN" ? Color("Colors/customDarkRed") : day.uppercased() == "SAT" ? Color("Colors/customDarkBlue") : .black)
+                        .font(.system(size: geometry.size.width / 30))
+                        .fontWeight(.bold)
                         .frame(maxWidth: .infinity)
                 }
                 
@@ -59,16 +61,17 @@ struct MonthView: View {
                             .foregroundStyle((index % 7 == 0) ? Color("Colors/customDarkRed") : (index % 7 == 6) ? Color("Colors/customDarkBlue") : .black)
                             .frame(maxWidth: .infinity)
                             .fontWeight(.bold)
-                            .padding(geometry.size.height / 70)
+                            .padding(geometry.size.height / 80)
                     } else {
                         Text("")
                             .frame(maxWidth: .infinity)
-                            .padding(geometry.size.height / 70)
+                            .padding(geometry.size.height / 80)
                     }
                 }
             }
         }
-        .frame(width: geometry.size.width, height: geometry.size.height / 2, alignment: .top)
+        .frame(width: geometry.size.width * 0.9, height: geometry.size.height / 2, alignment: .top)
+//        .border(.black)
         
     }
     

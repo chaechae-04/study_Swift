@@ -55,6 +55,5 @@ struct Footer: View {
                     .foregroundColor(.black)
             }
         }
-        .frame(width: geometry.size.width, height: geometry.size.height / 10)
     }
 }
