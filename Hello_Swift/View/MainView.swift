@@ -13,52 +13,47 @@ struct MainView: View {
         GeometryReader { geometry in
             
             VStack {
-                /* 상단 아이콘 및 프로필 */
+                /* Icon , Profile */
                 Group {
                     Header(geometry: geometry)
                         .frame(width: geometry.size.width, height: geometry.size.height * 0.1)
                 }
-//                .border(.red)
                 
+                /* Calendar */
                 Group {
                     MyCalendar(geometry: geometry)
                         .frame(width: geometry.size.width, height: geometry.size.height * 0.49)
                 }
-//                .border(.blue)
                 
+                /* Middle Group :  , Pie Chart */
                 HStack {
                     
+                    /* Today To do list */
                     Group {
                         GeometryReader { group_geometry in
                             Text("1")
                         }
                     }
-//                    .border(.black)
                     .frame(width: geometry.size.width * 0.45, height: geometry.size.height * 0.265)
                     .padding(.leading, geometry.size.width * 0.025)
                     
+                    /* Pie Chart */
                     Group {
                         GeometryReader { chart_geometry in
                             PieChart(geometry: chart_geometry)
                         }
                     }
-//                    .border(.black)
                     .frame(width: geometry.size.width * 0.45, height: geometry.size.height * 0.265)
                     .padding(.leading, geometry.size.width * 0.025)
-                    
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height * 0.29, alignment: .leading)
-//                .border(.gray)
                 
-                /* 하단 메뉴 */
+                /* Buttons */
                 Group {
                     Footer(geometry: geometry)
                         .frame(width: geometry.size.width, height: geometry.size.height * 0.1)
                 }
-//                .border(.green)
-                
             }
-            .padding(.bottom, geometry.size.height * 0.02)
         }
     }
 }

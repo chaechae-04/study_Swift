@@ -71,8 +71,6 @@ struct MonthView: View {
             }
         }
         .frame(width: geometry.size.width * 0.9, height: geometry.size.height / 2, alignment: .top)
-//        .border(.black)
-        
     }
     
     var monthYearString: String {
