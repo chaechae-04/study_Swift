@@ -9,20 +9,21 @@ import SwiftUI
 
 struct Footer: View {
     
-    let geometry: GeometryProxy
+    @Binding var action: String
+    let width: CGFloat
+    let height: CGFloat
     
     var body: some View {
         /* 하단 메뉴 */
-        HStack(spacing: geometry.size.width / 7) {
+        HStack(spacing: width * 0.125) {
             /* 버튼 1 */
             Button(action: {
-                
+                action = "todo"
             }) {
-                Image(systemName: "questionmark.circle")
+                Image(systemName: "list.bullet")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: geometry.size.width / 12)
-                    .foregroundColor(.black)
+                    .frame(width: width * 0.12)
             }
             /* 버튼 2 */
             Button(action: {
@@ -31,8 +32,7 @@ struct Footer: View {
                 Image(systemName: "questionmark.circle")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: geometry.size.width / 12)
-                    .foregroundColor(.black)
+                    .frame(width: width * 0.12)
             }
             /* 버튼 3 */
             Button(action: {
@@ -41,8 +41,7 @@ struct Footer: View {
                 Image(systemName: "questionmark.circle")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: geometry.size.width / 12)
-                    .foregroundColor(.black)
+                    .frame(width: width * 0.12)
             }
             /* 버튼 4 */
             Button(action: {
@@ -51,9 +50,14 @@ struct Footer: View {
                 Image(systemName: "questionmark.circle")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: geometry.size.width / 12)
-                    .foregroundColor(.black)
+                    .frame(width: width * 0.12)
             }
         }
+        .frame(width: width)
+        .foregroundStyle(Color.Colors.customBlack)
     }
+}
+
+#Preview {
+    MainView()
 }

@@ -15,17 +15,17 @@ struct SplashView: View {
                 .scaledToFit()
                 .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
                 .position(x: geometry.size.width / 2, y: UIScreen.main.bounds.height / 3)
-                .foregroundStyle(Color("Colors/customDarkRed"))
+                .foregroundStyle(Color.Colors.customBlack)
             
             Text("Splash View")
                 .fontWeight(.bold)
                 .font(.system(size: UIScreen.main.bounds.width / 15))
                 .frame(width: UIScreen.main.bounds.width, height: 0)
                 .position(x: geometry.size.width / 2, y: UIScreen.main.bounds.height / 2)
-                .foregroundStyle(Color("Colors/customGray"))
-        }
+                .foregroundStyle(Color.Colors.customBlack)
+      }
         .padding()
-//        .background(Color("Colors/customWhite"))
+        .background(Color.Colors.customGray)
     }
 }
 

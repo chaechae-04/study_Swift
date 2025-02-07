@@ -10,16 +10,18 @@ import SwiftUI
 struct PieChart: View {
     
     @State private var selectedCategory: String?
-    @State private var currentRate: Double = 75       // 초기값 설정
-    private let completionRate: Double = 75           // 동일한 초기값
     
-    let geometry: GeometryProxy
+    private let completionRate: Double = 75           // 초기값 설정
+    @State private var currentRate: Double = 75       // 초기값 : completionRate
+    
+    let width: CGFloat
+    let height: CGFloat
     
     /* TEMP */
     let categories = [
-        ("카테고리1", 0.225, Color.green),
-        ("공부", 0.375, Color.blue),
-        ("카테고리3", 0.150, Color.orange)
+        ("카테고리1", 0.3, Color.green),
+        ("공부", 0.5, Color.blue),
+        ("카테고리3", 0.2, Color.orange)
     ]
     
     private func animateToRate(_ category: (String, Double, Color)) {
@@ -41,14 +43,14 @@ struct PieChart: View {
             
             Path { path in
                 path.addArc(
-                    center: CGPoint(x: geometry.size.width / 2, y: geometry.size.height / 2),
-                    radius: min(geometry.size.width, geometry.size.height) * 0.35,
+                    center: CGPoint(x: width / 2, y: height / 2),
+                    radius: min(width, height) * 0.35,
                     startAngle: Angle(degrees: -90),
                     endAngle: Angle(degrees: 270),
                     clockwise: false
                 )
             }
-            .stroke(Color.gray.opacity(0.3), lineWidth: min(geometry.size.width, geometry.size.height) * 0.125)
+            .stroke(Color.gray.opacity(0.3), lineWidth: min(width, height) * 0.125)
             
             let angles = categories.reduce(into: [(Double, Double)]()) { result, category in
                 let start = result.last?.1 ?? -90
@@ -61,14 +63,14 @@ struct PieChart: View {
                 let (category, angle) = data
                 Path { path in
                     path.addArc(
-                        center: CGPoint(x: geometry.size.width / 2, y: geometry.size.height / 2),
-                        radius: min(geometry.size.width, geometry.size.height) * 0.35,
+                        center: CGPoint(x: width / 2, y: height / 2),
+                        radius: min(width, height) * 0.35,
                         startAngle: Angle(degrees: angle.0),
                         endAngle: Angle(degrees: angle.1),
                         clockwise: false
                     )
                 }
-                .stroke(category.2, lineWidth: min(geometry.size.width, geometry.size.height) * 0.125)
+                .stroke(category.2, lineWidth: min(width, height) * 0.125)
                 .scaleEffect(category.0 == selectedCategory ? 1.1 : 1.0)
                 .opacity(selectedCategory == nil || category.0 == selectedCategory ? 1.0 : 0.5)
                 .animation(.spring(response: 0.3), value: selectedCategory)
@@ -81,11 +83,11 @@ struct PieChart: View {
             }
             
             VStack {
-                Text(String(format: (selectedCategory == nil ? completionRate : currentRate).truncatingRemainder(dividingBy: 1) == 0 ? "%.0f%%" : "%.1f%%", (selectedCategory == nil ? completionRate : currentRate)))
-                    .font(.system(size: min(geometry.size.width, geometry.size.height) * 0.125, weight: .bold))
+                Text(String(format: (selectedCategory == nil ? completionRate : completionRate * currentRate / 100).truncatingRemainder(dividingBy: 1) == 0 ? "%.0f%%" : "%.1f%%", (selectedCategory == nil ? completionRate : completionRate * currentRate / 100)))
+                    .font(.system(size: min(width, height) * 0.125, weight: .bold))
                 if let selected = selectedCategory {
                     Text(selected)
-                        .font(.system(size: min(geometry.size.width, geometry.size.height) * 0.125, weight: .bold))
+                        .font(.system(size: min(width, height) * 0.125, weight: .bold))
                         .transition(.scale.combined(with: .opacity))
                         .onTapGesture {
                             withAnimation {
@@ -94,10 +96,11 @@ struct PieChart: View {
                         }
                 }
             }
+            .foregroundStyle(Color.Colors.customBlack)
         }
     }
 }
 
-//#Preview {
-//    MainView()
-//}
+#Preview {
+    MainView()
+}

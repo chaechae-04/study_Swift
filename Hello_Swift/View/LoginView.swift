@@ -49,7 +49,6 @@ struct LoginView: View {
                                     .padding(.leading, UIScreen.main.bounds.width * 0.05)
                             }
                             .frame(width: UIScreen.main.bounds.width * 0.85, height: UIScreen.main.bounds.height * 0.1, alignment: .leading)
-                            .background(.white)
                             .border(.blue)
                             HStack {
                                 TextField("PW", text: $pw)
@@ -68,6 +67,8 @@ struct LoginView: View {
                         }
                     }
                     .frame(width: UIScreen.main.bounds.width * 0.85, height: UIScreen.main.bounds.height * 0.2)
+                    .background(Color.Colors.customWhite)
+                    .foregroundStyle(Color.Colors.customBlack)
                     .border(.red)
                     
                     /* Login, SignUp Button */
@@ -118,6 +119,8 @@ struct LoginView: View {
                         
                     }
                     .frame(width: UIScreen.main.bounds.width * 0.55, height: UIScreen.main.bounds.height * 0.175)
+                    .background(Color.Colors.customWhite)
+                    .foregroundStyle(Color.Colors.customBlack)
                     .border(.red)
                     
                     Spacer()
@@ -125,6 +128,7 @@ struct LoginView: View {
                 }
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                 .padding(.top, UIScreen.main.bounds.height * 0.125)
+                .background(Color.Colors.customGray)
                 .border(.black)
             }
         } else {
@@ -134,6 +138,6 @@ struct LoginView: View {
     }
 }
 
-//#Preview {
-//    LoginView()
-//}
+#Preview {
+    LoginView()
+}

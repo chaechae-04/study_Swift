@@ -13,7 +13,8 @@ struct Header: View {
     @State private var isIconActive: Bool = false
     @State private var showSideMenu: Bool = false
     
-    let geometry: GeometryProxy
+    let width: CGFloat
+    let height: CGFloat
     @Binding var isLoggedIn: Bool
     
     var body: some View {
@@ -31,29 +32,31 @@ struct Header: View {
                 Image(systemName: iconName)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: geometry.size.width / 8)
-                    .padding(.leading, geometry.size.width / 12)
-                    .foregroundColor(.black)
+                    .frame(width: width * 0.3, height: height * 0.65)
+
             }
-            
             Spacer()
             
-            Text(UserDefaultsManager.shared.getCurrentUser()?.name ?? "User")
-                .fontWeight(.bold)
-                .font(.system(size: geometry.size.width / 18))
-                .padding(.top, geometry.size.height / 70)
-            /* 프로필 */
-            Button(action: {
-                showSideMenu.toggle()
-            }) {
-                Image(systemName: "person.crop.circle")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: geometry.size.width / 10)
-                    .padding(.trailing, geometry.size.width / 12)
-                    .foregroundColor(.black)
+            HStack(spacing: 0) {
+                Text(UserDefaultsManager.shared.getCurrentUser()?.name ?? "User")
+                    .font(.system(size: width * 0.065, weight: .bold))
+                    .frame(alignment: .trailing)
+                    .padding(.top, height * 0.08)
+                    .padding(.trailing, 0)
+                /* 프로필 */
+                Button(action: {
+                    showSideMenu.toggle()
+                }) {
+                    Image(systemName: "person.crop.circle")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: width * 0.2, height: height * 0.65)
+                        .padding(.leading, 0)
+                }
             }
         }
+        .foregroundStyle(Color.Colors.customBlack)
+        .padding(.top, height * 0.15)
         .sheet(isPresented: $showSideMenu) {
             VStack {
                 Text("프로필")
@@ -71,14 +74,16 @@ struct Header: View {
                     }
                 }) {
                     Text("Logout")
-                        .foregroundColor(.red)
+                        .foregroundColor(Color.Colors.customDarkRed)
                 }
                 Spacer()
             }
+            .frame(width: width)
+            .background(Color.Colors.customGray)
         }
     }
 }
 
-//#Preview {
-//    MainView()
-//}
+#Preview {
+    MainView()
+}

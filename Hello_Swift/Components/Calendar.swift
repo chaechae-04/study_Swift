@@ -13,13 +13,14 @@ struct MyCalendar: View {
         components.year = (components.year ?? 0) + 1
         return Calendar.current.date(from: components) ?? Date()
     }()
-    let geometry: GeometryProxy
+    let width: CGFloat
+    let height: CGFloat
     
     var body: some View {
         TabView {
             ForEach(-12...12, id: \.self) { month in
                 if let date = Calendar.current.date(byAdding: .month, value: month, to: currentDate) {
-                    MonthView(date: date, geometry: geometry)
+                    MonthView(date: date, width: width, height: height)
                         .tag(month)
                 }
             }
@@ -36,41 +37,42 @@ struct MyCalendar: View {
 struct MonthView: View {
     let date: Date
     let calendar = Foundation.Calendar.current
-    let geometry: GeometryProxy
+    let width: CGFloat
+    let height: CGFloat
     
     var body: some View {
         VStack {
             Text(monthYearString)
-                .font(.system(size: geometry.size.width / 15))
-                .fontWeight(.bold)
+                .font(.system(size: width * 0.06, weight: .bold))
                 .padding()
             
             LazyVGrid(columns: Array(repeating: GridItem(), count: 7)) {
                 
                 ForEach(["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"], id: \.self) { day in
                     Text(day)
-                        .foregroundStyle(day.uppercased() == "SUN" ? Color("Colors/customDarkRed") : day.uppercased() == "SAT" ? Color("Colors/customDarkBlue") : .black)
-                        .font(.system(size: geometry.size.width / 30))
-                        .fontWeight(.bold)
+                        .foregroundStyle(day.uppercased() == "SUN" ? Color.Colors.customDarkRed : day.uppercased() == "SAT" ? Color.Colors.customDarkBlue : Color.Colors.customBlack)
+                        .font(.system(size: width * 0.04, weight: .bold))
                         .frame(maxWidth: .infinity)
                 }
                 
                 ForEach(daysInMonth().indices, id: \.self) { index in
                     if let day = daysInMonth()[index] {
                         Text("\(day)")
-                            .foregroundStyle((index % 7 == 0) ? Color("Colors/customDarkRed") : (index % 7 == 6) ? Color("Colors/customDarkBlue") : .black)
-                            .frame(maxWidth: .infinity)
+                            .foregroundStyle((index % 7 == 0) ? Color.Colors.customDarkRed : (index % 7 == 6) ? Color.Colors.customDarkBlue : Color.Colors.customBlack)
+                            .frame(maxWidth: .infinity, alignment: .center)
                             .fontWeight(.bold)
-                            .padding(geometry.size.height / 80)
+                            .padding(.top, height * 0.0225)
+                            .padding(.bottom, height * 0.0225)
                     } else {
                         Text("")
                             .frame(maxWidth: .infinity)
-                            .padding(geometry.size.height / 80)
+                            .padding(.top, height * 0.0225)
+                            .padding(.bottom, height * 0.0225)
                     }
                 }
             }
         }
-        .frame(width: geometry.size.width * 0.9, height: geometry.size.height / 2, alignment: .top)
+        .frame(width: width * 0.9, height: height * 0.9, alignment: .top)
     }
     
     var monthYearString: String {
@@ -93,6 +95,6 @@ struct MonthView: View {
     }
 }
 
-//#Preview {
-//    MainView()
-//}
+#Preview {
+    MainView()
+}
