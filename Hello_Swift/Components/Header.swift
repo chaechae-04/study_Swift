@@ -9,13 +9,13 @@ import SwiftUI
 
 struct Header: View {
     
+    @EnvironmentObject var navState: NavigationState
     @State private var iconName: String = "sun.haze"
     @State private var isIconActive: Bool = false
     @State private var showSideMenu: Bool = false
     
     let width: CGFloat
     let height: CGFloat
-    @Binding var isLoggedIn: Bool
     
     var body: some View {
         HStack {
@@ -33,7 +33,7 @@ struct Header: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: width * 0.3, height: height * 0.65)
-
+                
             }
             Spacer()
             
@@ -60,18 +60,13 @@ struct Header: View {
         .sheet(isPresented: $showSideMenu) {
             VStack {
                 Text("프로필")
-                    
+                
                 Button(action: {
                     withAnimation(.easeInOut(duration: 0.3)) {
                         showSideMenu = false
                     }
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                        withAnimation(.easeInOut(duration: 0.3)) {
-                            isLoggedIn = false
-                            UserDefaultsManager.shared.clearUser()
-                        }
-                    }
+                    navState.currentScreen = .logIn
+                    UserDefaultsManager.shared.clearUser()
                 }) {
                     Text("Logout")
                         .foregroundColor(Color.Colors.customDarkRed)

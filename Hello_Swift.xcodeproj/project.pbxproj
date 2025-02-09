@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		E41F3C0E2D55CAB800F94CC7 /* TodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C0D2D55CAB800F94CC7 /* TodoView.swift */; };
 		E41F3C102D55CAF500F94CC7 /* ViewError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C0F2D55CAF500F94CC7 /* ViewError.swift */; };
+		E41F3C192D58E55E00F94CC7 /* ScreenEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C182D58E55E00F94CC7 /* ScreenEnums.swift */; };
+		E41F3C1B2D58E77800F94CC7 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C1A2D58E77800F94CC7 /* ErrorView.swift */; };
+		E41F3C1F2D58EB8500F94CC7 /* NavigationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C1E2D58EB8500F94CC7 /* NavigationState.swift */; };
 		E4700AB32D54AC9E005374B3 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4700AB22D54AC9E005374B3 /* PieChart.swift */; };
 		E4700AB82D54D018005374B3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E4700AB72D54D018005374B3 /* FirebaseAnalytics */; };
 		E4700AC12D54D1C1005374B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4700AC02D54D1C1005374B3 /* GoogleService-Info.plist */; };
@@ -55,6 +58,9 @@
 /* Begin PBXFileReference section */
 		E41F3C0D2D55CAB800F94CC7 /* TodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoView.swift; sourceTree = "<group>"; };
 		E41F3C0F2D55CAF500F94CC7 /* ViewError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewError.swift; sourceTree = "<group>"; };
+		E41F3C182D58E55E00F94CC7 /* ScreenEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenEnums.swift; sourceTree = "<group>"; };
+		E41F3C1A2D58E77800F94CC7 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		E41F3C1E2D58EB8500F94CC7 /* NavigationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationState.swift; sourceTree = "<group>"; };
 		E4700AB22D54AC9E005374B3 /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
 		E4700AC02D54D1C1005374B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E4700AC62D54D2A4005374B3 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -110,6 +116,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E41F3C112D58E48500F94CC7 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E41F3C122D58E49200F94CC7 /* Models */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E41F3C122D58E49200F94CC7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E41F3C152D58E4AD00F94CC7 /* Enums */,
+				E41F3C1E2D58EB8500F94CC7 /* NavigationState.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E41F3C152D58E4AD00F94CC7 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				E41F3C182D58E55E00F94CC7 /* ScreenEnums.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		E4700AB92D54D0EF005374B3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +233,7 @@
 				E4E145952D27D4200092EFD5 /* View */,
 				E4E1456A2D26805A0092EFD5 /* Hello_SwiftApp.swift */,
 				E4E1456C2D26805A0092EFD5 /* ContentView.swift */,
+				E41F3C112D58E48500F94CC7 /* App */,
 				E4E1456E2D26805B0092EFD5 /* Assets.xcassets */,
 				E4E145702D26805B0092EFD5 /* Hello_Swift.entitlements */,
 				E4E145712D26805B0092EFD5 /* Preview Content */,
@@ -243,6 +275,7 @@
 				E4700AD62D54E4AE005374B3 /* LoginView.swift */,
 				E4700ADA2D54F090005374B3 /* SignUpView.swift */,
 				E41F3C0D2D55CAB800F94CC7 /* TodoView.swift */,
+				E41F3C1A2D58E77800F94CC7 /* ErrorView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -388,18 +421,21 @@
 			files = (
 				E489EC3D2D52246300D07049 /* Footer.swift in Sources */,
 				E4700ADB2D54F090005374B3 /* SignUpView.swift in Sources */,
+				E41F3C1B2D58E77800F94CC7 /* ErrorView.swift in Sources */,
 				E4700AB32D54AC9E005374B3 /* PieChart.swift in Sources */,
 				E489EC3B2D52245B00D07049 /* Header.swift in Sources */,
 				E4700AD72D54E4AE005374B3 /* LoginView.swift in Sources */,
 				E4700AD02D54DBCD005374B3 /* UserDefaultsManager.swift in Sources */,
 				E4700AC72D54D2A4005374B3 /* FirebaseManager.swift in Sources */,
 				E4E1456D2D26805A0092EFD5 /* ContentView.swift in Sources */,
+				E41F3C1F2D58EB8500F94CC7 /* NavigationState.swift in Sources */,
 				E489EC382D52126100D07049 /* MainView.swift in Sources */,
 				E4700ACB2D54D5AB005374B3 /* UserService.swift in Sources */,
 				E41F3C0E2D55CAB800F94CC7 /* TodoView.swift in Sources */,
 				E41F3C102D55CAF500F94CC7 /* ViewError.swift in Sources */,
 				E4E1456B2D26805A0092EFD5 /* Hello_SwiftApp.swift in Sources */,
 				E489EC362D520CB500D07049 /* SplashView.swift in Sources */,
+				E41F3C192D58E55E00F94CC7 /* ScreenEnums.swift in Sources */,
 				E4700AC92D54D372005374B3 /* UserModel.swift in Sources */,
 				E489EC3F2D5226B900D07049 /* Calendar.swift in Sources */,
 				E4700ACD2D54DAC2005374B3 /* UserError.swift in Sources */,

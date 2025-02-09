@@ -9,12 +9,12 @@ import SwiftUI
 
 struct SignUpView: View {
     
-    @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var navState: NavigationState
     
     var body: some View {
         Text("Go to Login View")
             .onTapGesture {
-                dismiss()
+                navState.currentScreen = .logIn
             }
     }
 }

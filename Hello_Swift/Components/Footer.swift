@@ -9,7 +9,8 @@ import SwiftUI
 
 struct Footer: View {
     
-    @Binding var action: String
+    @EnvironmentObject var navState: NavigationState
+    
     let width: CGFloat
     let height: CGFloat
     
@@ -18,7 +19,7 @@ struct Footer: View {
         HStack(spacing: width * 0.125) {
             /* 버튼 1 */
             Button(action: {
-                action = "todo"
+                navState.currentScreen = .todo
             }) {
                 Image(systemName: "list.bullet")
                     .resizable()
