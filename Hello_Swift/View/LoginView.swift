@@ -29,31 +29,31 @@ struct LoginView: View {
                 Group {
                     Text("icon")
                 }
-                .frame(width: UIScreen.main.bounds.width * 0.85, height: UIScreen.main.bounds.height * 0.1)
+                .frame(width: ScreenSize.width * 0.85, height: ScreenSize.height * 0.1)
                 .border(.red)
                 
                 /* ID, PW Text Field */
                 Group {
                     Text("login")
                 }
-                .frame(width: UIScreen.main.bounds.width * 0.85, height: UIScreen.main.bounds.height * 0.1)
+                .frame(width: ScreenSize.width * 0.85, height: ScreenSize.height * 0.1)
                 .border(.red)
                 
                 Group {
                     VStack(spacing: 0) {
                         HStack() {
                             TextField("ID", text: $id)
-                                .font(.system(size: UIScreen.main.bounds.width * 0.06, weight: .bold))
-                                .padding(.leading, UIScreen.main.bounds.width * 0.05)
+                                .font(.system(size: ScreenSize.width * 0.06, weight: .bold))
+                                .padding(.leading, ScreenSize.width * 0.05)
                         }
-                        .frame(width: UIScreen.main.bounds.width * 0.85, height: UIScreen.main.bounds.height * 0.1, alignment: .leading)
+                        .frame(width: ScreenSize.width * 0.85, height: ScreenSize.height * 0.1, alignment: .leading)
                         .border(.blue)
                         HStack {
                             TextField("PW", text: $pw)
-                                .font(.system(size: UIScreen.main.bounds.width * 0.06, weight: .bold))
-                                .padding(.leading, UIScreen.main.bounds.width * 0.05)
+                                .font(.system(size: ScreenSize.width * 0.06, weight: .bold))
+                                .padding(.leading, ScreenSize.width * 0.05)
                         }
-                        .frame(width: UIScreen.main.bounds.width * 0.85, height: UIScreen.main.bounds.height * 0.1, alignment: .leading)
+                        .frame(width: ScreenSize.width * 0.85, height: ScreenSize.height * 0.1, alignment: .leading)
                         .border(.blue)
                     }
                     .alert(isPresented: $showAlert) {
@@ -64,7 +64,7 @@ struct LoginView: View {
                         )
                     }
                 }
-                .frame(width: UIScreen.main.bounds.width * 0.85, height: UIScreen.main.bounds.height * 0.2)
+                .frame(width: ScreenSize.width * 0.85, height: ScreenSize.height * 0.2)
                 .background(Color.Colors.customWhite)
                 .foregroundStyle(Color.Colors.customBlack)
                 .border(.red)
@@ -98,7 +98,7 @@ struct LoginView: View {
                             Text("Login")
                         }
                     }
-                    .frame(width: UIScreen.main.bounds.width * 0.55, height: UIScreen.main.bounds.height * 0.0875)
+                    .frame(width: ScreenSize.width * 0.55, height: ScreenSize.height * 0.0875)
                     .border(.blue)
                     
                     /* SignUp */
@@ -111,14 +111,11 @@ struct LoginView: View {
                             Text("SignUp")
                         }
                     }
-                    .frame(width: UIScreen.main.bounds.width * 0.55, height: UIScreen.main.bounds.height * 0.0875)
-                    //                        .fullScreenCover(isPresented: $showSignUp) {
-                    //                            SignUpView()
-                    //                        }
+                    .frame(width: ScreenSize.width * 0.55, height: ScreenSize.height * 0.0875)
                     .border(.blue)
                     
                 }
-                .frame(width: UIScreen.main.bounds.width * 0.55, height: UIScreen.main.bounds.height * 0.175)
+                .frame(width: ScreenSize.width * 0.55, height: ScreenSize.height * 0.175)
                 .background(Color.Colors.customWhite)
                 .foregroundStyle(Color.Colors.customBlack)
                 .border(.red)
@@ -126,14 +123,14 @@ struct LoginView: View {
                 Spacer()
                 
             }
-            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-            .padding(.top, UIScreen.main.bounds.height * 0.125)
+            .frame(width: ScreenSize.width, height: ScreenSize.height)
+            .padding(.top, ScreenSize.height * 0.125)
             .background(Color.Colors.customGray)
             .border(.black)
         }
     }
 }
 
-//#Preview {
-//    LoginView()
-//}
+#Preview {
+    LoginView()
+}

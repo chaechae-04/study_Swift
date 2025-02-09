@@ -29,21 +29,21 @@ struct DiaryView: View {
                             .foregroundStyle(Color.Colors.customBlack)
                     }
                 }
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.1)
+                .frame(width: ScreenSize.width, height: ScreenSize.height * 0.1)
                 .border(.red)
                 
                 /* MAIN */
                 Group {
                     Text("Diary")
                 }
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.7)
+                .frame(width: ScreenSize.width, height: ScreenSize.height * 0.7)
                 .border(.blue)
                 
                 /* FOOTER */
                 Group {
                     Text("Footer")
                 }
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.1)
+                .frame(width: ScreenSize.width, height: ScreenSize.height * 0.1)
                 .border(.red)
             }
             .frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)

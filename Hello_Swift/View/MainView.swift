@@ -19,8 +19,8 @@ struct MainView: View {
                     Header(width: geometry_header.size.width, height: geometry_header.size.height)
                 }
             }
-            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.1)
-            .padding(.top, UIScreen.main.bounds.height * 0.03)
+            .frame(width: ScreenSize.width, height: ScreenSize.height * 0.1)
+            .padding(.top, ScreenSize.height * 0.03)
             
             /* Calendar */
             Group {
@@ -28,7 +28,7 @@ struct MainView: View {
                     MyCalendar(width: geometry_calendar.size.width, height: geometry_calendar.size.height)
                 }
             }
-            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.49)
+            .frame(width: ScreenSize.width, height: ScreenSize.height * 0.49)
             
             /* Middle Group : Todo List , Pie Chart */
             HStack {
@@ -39,8 +39,8 @@ struct MainView: View {
                         Text("1")
                     }
                 }
-                .frame(width: UIScreen.main.bounds.width * 0.45, height: UIScreen.main.bounds.height * 0.2)
-                .padding(.leading, UIScreen.main.bounds.width * 0.025)
+                .frame(width: ScreenSize.width * 0.45, height: ScreenSize.height * 0.2)
+                .padding(.leading, ScreenSize.width * 0.025)
                 
                 /* Pie Chart */
                 Group {
@@ -48,10 +48,10 @@ struct MainView: View {
                         PieChart(width: geometry_chart.size.width, height: geometry_chart.size.height)
                     }
                 }
-                .frame(width: UIScreen.main.bounds.width * 0.45, height: UIScreen.main.bounds.height * 0.2)
-                .padding(.leading, UIScreen.main.bounds.width * 0.025)
+                .frame(width: ScreenSize.width * 0.45, height: ScreenSize.height * 0.2)
+                .padding(.leading, ScreenSize.width * 0.025)
             }
-            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.225, alignment: .leading)
+            .frame(width: ScreenSize.width, height: ScreenSize.height * 0.225, alignment: .leading)
             
             Spacer()
             
@@ -61,7 +61,7 @@ struct MainView: View {
                     Footer(width: geometry_footer.size.width, height: geometry_footer.size.height)
                 }
             }
-            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.1)
+            .frame(width: ScreenSize.width, height: ScreenSize.height * 0.1)
             .padding(.top)
         }
         .background(Color.Colors.customGray)
