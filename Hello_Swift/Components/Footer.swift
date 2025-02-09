@@ -28,9 +28,9 @@ struct Footer: View {
             }
             /* 버튼 2 */
             Button(action: {
-                
+                navState.currentScreen = .diary
             }) {
-                Image(systemName: "questionmark.circle")
+                Image(systemName: "pencil.circle")
                     .resizable()
                     .scaledToFit()
                     .frame(width: width * 0.12)

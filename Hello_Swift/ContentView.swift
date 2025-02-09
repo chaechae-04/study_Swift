@@ -39,6 +39,9 @@ struct ContentView: View {
         case .todo:
             TodoView()
                 .transition(.move(edge: .leading))
+        case .diary:
+            DiaryView()
+                .transition(.move(edge: .leading))
         }
     }
     

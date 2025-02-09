@@ -15,6 +15,7 @@
 		E41F3C212D58F25600F94CC7 /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C202D58F25600F94CC7 /* TodoModel.swift */; };
 		E41F3C232D58F51700F94CC7 /* TodoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C222D58F51700F94CC7 /* TodoService.swift */; };
 		E41F3C252D58F51E00F94CC7 /* TodoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C242D58F51E00F94CC7 /* TodoError.swift */; };
+		E41F3C272D58F66900F94CC7 /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C262D58F66900F94CC7 /* DiaryView.swift */; };
 		E4700AB32D54AC9E005374B3 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4700AB22D54AC9E005374B3 /* PieChart.swift */; };
 		E4700AB82D54D018005374B3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E4700AB72D54D018005374B3 /* FirebaseAnalytics */; };
 		E4700AC12D54D1C1005374B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4700AC02D54D1C1005374B3 /* GoogleService-Info.plist */; };
@@ -67,6 +68,7 @@
 		E41F3C202D58F25600F94CC7 /* TodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
 		E41F3C222D58F51700F94CC7 /* TodoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoService.swift; sourceTree = "<group>"; };
 		E41F3C242D58F51E00F94CC7 /* TodoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoError.swift; sourceTree = "<group>"; };
+		E41F3C262D58F66900F94CC7 /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
 		E4700AB22D54AC9E005374B3 /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
 		E4700AC02D54D1C1005374B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E4700AC62D54D2A4005374B3 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				E4700ADA2D54F090005374B3 /* SignUpView.swift */,
 				E41F3C0D2D55CAB800F94CC7 /* TodoView.swift */,
 				E41F3C1A2D58E77800F94CC7 /* ErrorView.swift */,
+				E41F3C262D58F66900F94CC7 /* DiaryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				E489EC382D52126100D07049 /* MainView.swift in Sources */,
 				E4700ACB2D54D5AB005374B3 /* UserService.swift in Sources */,
 				E41F3C212D58F25600F94CC7 /* TodoModel.swift in Sources */,
+				E41F3C272D58F66900F94CC7 /* DiaryView.swift in Sources */,
 				E41F3C0E2D55CAB800F94CC7 /* TodoView.swift in Sources */,
 				E41F3C102D55CAF500F94CC7 /* ViewError.swift in Sources */,
 				E4E1456B2D26805A0092EFD5 /* Hello_SwiftApp.swift in Sources */,

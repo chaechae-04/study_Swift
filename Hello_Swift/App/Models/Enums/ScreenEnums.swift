@@ -8,7 +8,11 @@
 import Foundation
 
 enum ScreenState {
-    case logIn, signUp, main, todo
+    case logIn
+    case signUp
+    case main
+    case todo
+    case diary
 }
 
 enum SplashState {
