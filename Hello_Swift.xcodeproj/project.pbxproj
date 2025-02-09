@@ -12,6 +12,9 @@
 		E41F3C192D58E55E00F94CC7 /* ScreenEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C182D58E55E00F94CC7 /* ScreenEnums.swift */; };
 		E41F3C1B2D58E77800F94CC7 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C1A2D58E77800F94CC7 /* ErrorView.swift */; };
 		E41F3C1F2D58EB8500F94CC7 /* NavigationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C1E2D58EB8500F94CC7 /* NavigationState.swift */; };
+		E41F3C212D58F25600F94CC7 /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C202D58F25600F94CC7 /* TodoModel.swift */; };
+		E41F3C232D58F51700F94CC7 /* TodoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C222D58F51700F94CC7 /* TodoService.swift */; };
+		E41F3C252D58F51E00F94CC7 /* TodoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C242D58F51E00F94CC7 /* TodoError.swift */; };
 		E4700AB32D54AC9E005374B3 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4700AB22D54AC9E005374B3 /* PieChart.swift */; };
 		E4700AB82D54D018005374B3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E4700AB72D54D018005374B3 /* FirebaseAnalytics */; };
 		E4700AC12D54D1C1005374B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4700AC02D54D1C1005374B3 /* GoogleService-Info.plist */; };
@@ -61,6 +64,9 @@
 		E41F3C182D58E55E00F94CC7 /* ScreenEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenEnums.swift; sourceTree = "<group>"; };
 		E41F3C1A2D58E77800F94CC7 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		E41F3C1E2D58EB8500F94CC7 /* NavigationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationState.swift; sourceTree = "<group>"; };
+		E41F3C202D58F25600F94CC7 /* TodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
+		E41F3C222D58F51700F94CC7 /* TodoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoService.swift; sourceTree = "<group>"; };
+		E41F3C242D58F51E00F94CC7 /* TodoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoError.swift; sourceTree = "<group>"; };
 		E4700AB22D54AC9E005374B3 /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
 		E4700AC02D54D1C1005374B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E4700AC62D54D2A4005374B3 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -145,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				E4700ACA2D54D5AB005374B3 /* UserService.swift */,
+				E41F3C222D58F51700F94CC7 /* TodoService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -165,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				E4700AC82D54D372005374B3 /* UserModel.swift */,
+				E41F3C202D58F25600F94CC7 /* TodoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -174,6 +182,7 @@
 			children = (
 				E4700ACC2D54DAC2005374B3 /* UserError.swift */,
 				E41F3C0F2D55CAF500F94CC7 /* ViewError.swift */,
+				E41F3C242D58F51E00F94CC7 /* TodoError.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -429,12 +438,15 @@
 				E4700AC72D54D2A4005374B3 /* FirebaseManager.swift in Sources */,
 				E4E1456D2D26805A0092EFD5 /* ContentView.swift in Sources */,
 				E41F3C1F2D58EB8500F94CC7 /* NavigationState.swift in Sources */,
+				E41F3C252D58F51E00F94CC7 /* TodoError.swift in Sources */,
 				E489EC382D52126100D07049 /* MainView.swift in Sources */,
 				E4700ACB2D54D5AB005374B3 /* UserService.swift in Sources */,
+				E41F3C212D58F25600F94CC7 /* TodoModel.swift in Sources */,
 				E41F3C0E2D55CAB800F94CC7 /* TodoView.swift in Sources */,
 				E41F3C102D55CAF500F94CC7 /* ViewError.swift in Sources */,
 				E4E1456B2D26805A0092EFD5 /* Hello_SwiftApp.swift in Sources */,
 				E489EC362D520CB500D07049 /* SplashView.swift in Sources */,
+				E41F3C232D58F51700F94CC7 /* TodoService.swift in Sources */,
 				E41F3C192D58E55E00F94CC7 /* ScreenEnums.swift in Sources */,
 				E4700AC92D54D372005374B3 /* UserModel.swift in Sources */,
 				E489EC3F2D5226B900D07049 /* Calendar.swift in Sources */,

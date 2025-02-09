@@ -40,7 +40,6 @@ struct ContentView: View {
             TodoView()
                 .transition(.move(edge: .leading))
         }
-        
     }
     
     private var splashContent: some View {
