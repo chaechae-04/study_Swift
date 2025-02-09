@@ -6,3 +6,26 @@
 //
 
 import Foundation
+
+enum TodoError: LocalizedError {
+    case invalidId
+    case invalidDateTime
+    case invalidTitle
+    case invalidContent
+    case invalidComplete
+    
+    var errorDescription: String? {
+        switch self {
+        case .invalidId:
+            return "Error: ID"
+        case .invalidDateTime:
+            return "Error: Date Time"
+        case .invalidTitle:
+            return "Error: Title"
+        case .invalidContent:
+            return "Error: Content"
+        case .invalidComplete:
+            return "Error: Complete"
+        }
+    }
+}

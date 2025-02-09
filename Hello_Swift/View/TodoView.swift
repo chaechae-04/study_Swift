@@ -12,45 +12,42 @@ struct TodoView: View {
     @EnvironmentObject var navState: NavigationState
     
     var body: some View {
-        ZStack {
-            
-            GeometryReader { geometry in
-                VStack {
-                    /* HEADER */
-                    HStack {
-                        Spacer()
-                        
-                        Button(action: {
-                            navState.currentScreen = .main
-                        }) {
-                            Image(systemName: "chevron.forward")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: geometry.size.width * 0.15, height: geometry.size.height * 0.025)
-                                .fontWeight(.bold)
-                                .foregroundStyle(Color.Colors.customBlack)
-                        }
-                    }
-                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.1)
-                    .border(.red)
+        GeometryReader { geometry in
+            VStack {
+                /* HEADER */
+                HStack {
+                    Spacer()
                     
-                    /* MAIN */
-                    Group {
-                        Text("Main")
+                    Button(action: {
+                        navState.currentScreen = .main
+                    }) {
+                        Image(systemName: "chevron.forward")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: geometry.size.width * 0.15, height: geometry.size.height * 0.025)
+                            .fontWeight(.bold)
+                            .foregroundStyle(Color.Colors.customBlack)
                     }
-                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.7)
-                    .border(.blue)
-                    
-                    /* FOOTER */
-                    Group {
-                        Text("Footer")
-                    }
-                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.1)
-                    .border(.red)
                 }
-                .frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)
-                .background(Color.Colors.customGray)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.1)
+                .border(.red)
+                
+                /* MAIN */
+                Group {
+                    Text("Todo")
+                }
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.7)
+                .border(.blue)
+                
+                /* FOOTER */
+                Group {
+                    Text("Footer")
+                }
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.1)
+                .border(.red)
             }
+            .frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)
+            .background(Color.Colors.customGray)
         }
     }
 }
