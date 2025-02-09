@@ -11,6 +11,7 @@ struct ContentView: View {
     
     @StateObject private var navState = NavigationState()
     @State private var splashState: SplashState = .showing
+    @State private var isTranning: Bool = false
     
     var body: some View {
         
@@ -18,6 +19,7 @@ struct ContentView: View {
             mainContent
             splashContent
         }
+        .animation(.easeInOut(duration: 0.3), value: navState.currentScreen)
         .environmentObject(navState)
     }
     
@@ -27,19 +29,22 @@ struct ContentView: View {
         switch navState.currentScreen {
         case .logIn:
             LoginView()
+                .transition(.opacity)
         case .signUp:
             SignUpView()
+                .transition(.opacity)
         case .main:
             MainView()
+                .transition(.opacity)
         case .todo:
             TodoView()
+                .transition(.move(edge: .leading))
         }
         
     }
     
     private var splashContent: some View {
         SplashView()
-            .transition(.move(edge: .bottom))
             .opacity(splashState != .hidden ? 1 : 0)
             .task {
                 await animateSplash()
