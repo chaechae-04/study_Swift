@@ -47,7 +47,6 @@ struct TodoView: View {
                 .border(.red)
             }
             .frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)
-            .background(Color.Colors.customGray)
         }
     }
 }

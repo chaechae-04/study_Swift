@@ -74,7 +74,6 @@ struct Header: View {
                 Spacer()
             }
             .frame(width: width)
-            .background(Color.Colors.customGray)
         }
     }
 }

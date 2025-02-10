@@ -9,6 +9,6 @@ import SwiftUI
 import Foundation
 
 struct ScreenSize {
-    static let width = UIScreen.main.bounds.width
-    static let height = UIScreen.main.bounds.height
+    static let width: CGFloat = UIScreen.main.bounds.width
+    static let height: CGFloat = UIScreen.main.bounds.height
 }

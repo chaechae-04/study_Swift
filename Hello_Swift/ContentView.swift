@@ -11,13 +11,13 @@ struct ContentView: View {
     
     @StateObject private var navState = NavigationState()
     @State private var splashState: SplashState = .showing
-    @State private var isTranning: Bool = false
     
     var body: some View {
         
         ZStack {
             mainContent
-            splashContent
+//          Preview 보기 편하게 주석처리 함
+//            splashContent
         }
         .animation(.easeInOut(duration: 0.3), value: navState.currentScreen)
         .environmentObject(navState)
@@ -32,7 +32,7 @@ struct ContentView: View {
                 .transition(.opacity)
         case .signUp:
             SignUpView()
-                .transition(.opacity)
+                .transition(.move(edge: .bottom))
         case .main:
             MainView()
                 .transition(.opacity)

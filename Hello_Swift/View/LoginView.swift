@@ -65,7 +65,6 @@ struct LoginView: View {
                     }
                 }
                 .frame(width: ScreenSize.width * 0.85, height: ScreenSize.height * 0.2)
-                .background(Color.Colors.customWhite)
                 .foregroundStyle(Color.Colors.customBlack)
                 .border(.red)
                 
@@ -116,7 +115,6 @@ struct LoginView: View {
                     
                 }
                 .frame(width: ScreenSize.width * 0.55, height: ScreenSize.height * 0.175)
-                .background(Color.Colors.customWhite)
                 .foregroundStyle(Color.Colors.customBlack)
                 .border(.red)
                 
@@ -125,7 +123,6 @@ struct LoginView: View {
             }
             .frame(width: ScreenSize.width, height: ScreenSize.height)
             .padding(.top, ScreenSize.height * 0.125)
-            .background(Color.Colors.customGray)
             .border(.black)
         }
     }

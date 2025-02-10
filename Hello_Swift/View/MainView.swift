@@ -64,12 +64,11 @@ struct MainView: View {
             .frame(width: ScreenSize.width, height: ScreenSize.height * 0.1)
             .padding(.top)
         }
-        .background(Color.Colors.customGray)
     }
 }
 
 
 #Preview {
-    MainView()
+    ContentView()
 }
 

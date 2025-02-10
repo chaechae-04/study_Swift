@@ -9,6 +9,7 @@ import Foundation
 
 enum TodoError: LocalizedError {
     case invalidId
+    case invalidCategory
     case invalidDateTime
     case invalidTitle
     case invalidContent
@@ -18,6 +19,8 @@ enum TodoError: LocalizedError {
         switch self {
         case .invalidId:
             return "Error: ID"
+        case .invalidCategory:
+            return "Error: Category"
         case .invalidDateTime:
             return "Error: Date Time"
         case .invalidTitle:

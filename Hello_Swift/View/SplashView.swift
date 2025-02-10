@@ -25,7 +25,6 @@ struct SplashView: View {
                 .foregroundStyle(Color.Colors.customBlack)
       }
         .padding()
-        .background(Color.Colors.customGray)
     }
 }
 
