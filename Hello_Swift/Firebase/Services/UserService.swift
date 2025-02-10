@@ -46,12 +46,17 @@ class UserService: ObservableObject {
     }
     
     /* 회원가입 */
-    func sighUp(id: String, email: String, password: String, name: String, birthday: String) async throws -> UserModel {
+    func signUp(id: String, email: String, password: String, name: String, birthday: String) async throws -> UserModel {
+        
+        // 빈값 체크
+        guard !id.isEmpty else { throw UserError.emptyId }
+        guard !password.isEmpty else { throw UserError.emptyPassword }
+        guard !email.isEmpty else { throw UserError.emptyEmail }
+        guard !name.isEmpty else { throw UserError.emptyName }
+        guard !birthday.isEmpty else { throw UserError.emptyBirthday }
         
         // ID 중복 체크
         if let _ = try await getUser(id: id) { throw UserError.duplicateId }
-        // ID 검사 (빈값 체크)
-        guard !id.isEmpty else { throw UserError.invalidId }
         // Email 형식 검사
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         guard NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: email) else { throw UserError.invalidEmail }
@@ -61,7 +66,7 @@ class UserService: ObservableObject {
         // 생일 포맷 검사
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        guard let birthdayDate = dateFormatter.date(from: birthday) else { throw UserError.invalidDate }
+        guard let birthdayDate = dateFormatter.date(from: birthday) else { throw UserError.invalidBirthday }
         
         let user = UserModel(id: id, email: email, password: password, name: name, birthday: birthdayDate)
         try await saveUser(user)
@@ -70,9 +75,15 @@ class UserService: ObservableObject {
     
     /* 로그인 */
     func signIn(id: String, password: String) async throws -> UserModel {
+        
+        guard !id.isEmpty else { throw UserError.emptyId }
+        guard !password.isEmpty else { throw UserError.emptyPassword }
+        
         guard let user = try await getUser(id: id) else { throw UserError.userNotFound }
         guard user.password == password else { throw UserError.userPwNotFound }
+        
         UserDefaultsManager.shared.saveUser(user)
+        
         return user
     }
     

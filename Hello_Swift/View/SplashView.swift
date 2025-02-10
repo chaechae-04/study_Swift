@@ -23,7 +23,7 @@ struct SplashView: View {
                 .frame(width: ScreenSize.width, height: 0)
                 .position(x: geometry.size.width / 2, y: ScreenSize.height / 2)
                 .foregroundStyle(Color.Colors.customBlack)
-      }
+        }
         .padding()
     }
 }
