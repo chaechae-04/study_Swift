@@ -126,7 +126,49 @@ struct SignUpView: View {
                 }
                 .frame(width: ScreenSize.width, height: ScreenSize.height * 0.45, alignment: .topLeading)
                 
-                Group {
+                VStack(alignment: .trailing) {
+                    
+                    Color.clear
+                        .frame(width: ScreenSize.width * 0.9, height: ScreenSize.height * 0.175)
+                        .overlay {
+                            HStack {
+                                Image(systemName: "person.crop.circle")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: ScreenSize.width * 0.2)
+                                    .padding(.leading, ScreenSize.width * 0.05)
+                                
+                                VStack(spacing: 0) {
+                                    HStack(spacing: 0) {
+                                        Text("\(id.isEmpty ? "ID" : id)")
+                                            .frame(width: ScreenSize.width * 0.3, height: ScreenSize.height * 0.05, alignment: .leading)
+                                        
+                                        Text("\(birthday.isEmpty ? "Birthday" : birthday)")
+                                            .frame(width: ScreenSize.width * 0.225, height: ScreenSize.height * 0.05, alignment: .leading)
+                                    }
+                                    .frame(width: ScreenSize.width * 0.525, height: ScreenSize.height * 0.05, alignment: .leading)
+                                    .padding(.leading, ScreenSize.width * 0.075)
+                                    
+                                    HStack {
+                                        Text("\(email.isEmpty ? "Email" : email)")
+                                    }
+                                    .frame(width: ScreenSize.width * 0.525, height: ScreenSize.height * 0.05, alignment: .leading)
+                                    .padding(.leading, ScreenSize.width * 0.075)
+                                    
+                                    HStack {
+                                        Text("\(name.isEmpty ? "Name" : name)")
+                                    }
+                                    .frame(width: ScreenSize.width * 0.525, height: ScreenSize.height * 0.05, alignment: .trailing)
+                                    .padding(.trailing, ScreenSize.width * 0.075)
+                                    
+                                }
+                                .frame(width: ScreenSize.width * 0.6, height: ScreenSize.height * 0.175)
+                            }
+                            RoundedRectangle(cornerRadius: 35)
+                                .stroke(Color.Colors.customBlack, lineWidth: 1)
+                        }
+                        .padding(.trailing, ScreenSize.height * 0.005)
+                    
                     Button(action: {
                         print("ID : \(id)\nPW : \(pw)\nEmail : \(email)\nName : \(name)\nBirthDay : \(birthday)")
                         Task {
@@ -157,8 +199,9 @@ struct SignUpView: View {
                             }
                         }
                     }) {
-                        Text("Print")
+                        Text("OK")
                     }
+                    .padding(.trailing, ScreenSize.width * 0.1)
                 }
                 .frame(width: ScreenSize.width, height: ScreenSize.height * 0.25)
                 .border(Color.Colors.customDarkBlue)
