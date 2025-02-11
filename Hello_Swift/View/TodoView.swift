@@ -10,6 +10,7 @@ import SwiftUI
 struct TodoView: View {
     
     @EnvironmentObject var navState: NavigationState
+    
     @State private var baseDate: Date = Calendar.current.date(from: DateComponents(year: 2025, month: 1, day: 1)) ?? Date()
     @State private var selectedDate: Date = Calendar.current.date(from: DateComponents(year: 2025, month: 1, day: 1)) ?? Date()
     
@@ -53,7 +54,7 @@ struct TodoView: View {
             /* FOOTER */
             VStack(spacing: ScreenSize.height * 0.025) {
                 Group {
-                    YearMonthPicker(date: $baseDate)
+                    YearMonthPicker(selectedDate: $selectedDate, date: $baseDate)
                 }
                 .frame(width: ScreenSize.width, alignment: .leading)
                 .padding(.leading, ScreenSize.width * 0.05)

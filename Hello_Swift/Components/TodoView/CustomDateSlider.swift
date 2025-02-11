@@ -38,8 +38,6 @@ struct CustomDateSlider: View {
         GeometryReader { geometry in
             ScrollView(.horizontal, showsIndicators: false) {
                 ScrollViewReader { proxy in
-                    
-                
                     HStack(spacing: cellSpacing) {
                         ForEach(daysInMonth, id: \.self) { date in
                             DateCell(date: date, isSelected: Calendar.current.isDate(date, inSameDayAs: selectedDate))

@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct YearMonthPicker: View {
+    
+    @Binding var selectedDate: Date
     @Binding var date: Date
+    
     @State private var year: Int
     @State private var month: Int
     
     @State private var isFirstLoad: Bool = true
     
-    init(date: Binding<Date>) {
+    init(selectedDate: Binding<Date>, date: Binding<Date>) {
+        self._selectedDate = selectedDate
         self._date = date
         let calendar = Calendar.current
         self._year = State(initialValue: calendar.component(.year, from: date.wrappedValue))
@@ -52,6 +56,7 @@ struct YearMonthPicker: View {
         components.month = month
         components.day = 1
         date = Calendar.current.date(from: components) ?? date
+//        selectedDate = date
     }
 }
 
