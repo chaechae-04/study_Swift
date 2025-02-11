@@ -19,6 +19,9 @@
 		E41F3C2A2D59241000F94CC7 /* ScreenStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C292D59241000F94CC7 /* ScreenStruct.swift */; };
 		E41F3C2D2D5B3EB400F94CC7 /* AlertState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C2C2D5B3EB400F94CC7 /* AlertState.swift */; };
 		E41F3C2F2D5B438200F94CC7 /* AlertEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C2E2D5B438200F94CC7 /* AlertEnums.swift */; };
+		E41F3C312D5B537800F94CC7 /* CustomDateSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C302D5B537800F94CC7 /* CustomDateSlider.swift */; };
+		E41F3C332D5B559F00F94CC7 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C322D5B559F00F94CC7 /* DateCell.swift */; };
+		E41F3C352D5B59C400F94CC7 /* YearMonthPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C342D5B59C400F94CC7 /* YearMonthPicker.swift */; };
 		E4700AB32D54AC9E005374B3 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4700AB22D54AC9E005374B3 /* PieChart.swift */; };
 		E4700AB82D54D018005374B3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E4700AB72D54D018005374B3 /* FirebaseAnalytics */; };
 		E4700AC12D54D1C1005374B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4700AC02D54D1C1005374B3 /* GoogleService-Info.plist */; };
@@ -75,6 +78,9 @@
 		E41F3C292D59241000F94CC7 /* ScreenStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenStruct.swift; sourceTree = "<group>"; };
 		E41F3C2C2D5B3EB400F94CC7 /* AlertState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertState.swift; sourceTree = "<group>"; };
 		E41F3C2E2D5B438200F94CC7 /* AlertEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertEnums.swift; sourceTree = "<group>"; };
+		E41F3C302D5B537800F94CC7 /* CustomDateSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateSlider.swift; sourceTree = "<group>"; };
+		E41F3C322D5B559F00F94CC7 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
+		E41F3C342D5B59C400F94CC7 /* YearMonthPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearMonthPicker.swift; sourceTree = "<group>"; };
 		E4700AB22D54AC9E005374B3 /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
 		E4700AC02D54D1C1005374B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E4700AC62D54D2A4005374B3 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -174,6 +180,27 @@
 			path = States;
 			sourceTree = "<group>";
 		};
+		E41F3C362D5B5C8500F94CC7 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				E489EC3A2D52245A00D07049 /* Header.swift */,
+				E489EC3C2D52246300D07049 /* Footer.swift */,
+				E489EC3E2D5226B900D07049 /* Calendar.swift */,
+				E4700AB22D54AC9E005374B3 /* PieChart.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		E41F3C372D5B5C8A00F94CC7 /* TodoView */ = {
+			isa = PBXGroup;
+			children = (
+				E41F3C302D5B537800F94CC7 /* CustomDateSlider.swift */,
+				E41F3C322D5B559F00F94CC7 /* DateCell.swift */,
+				E41F3C342D5B59C400F94CC7 /* YearMonthPicker.swift */,
+			);
+			path = TodoView;
+			sourceTree = "<group>";
+		};
 		E4700AB92D54D0EF005374B3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,10 +259,8 @@
 		E489EC392D52244E00D07049 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				E489EC3A2D52245A00D07049 /* Header.swift */,
-				E489EC3C2D52246300D07049 /* Footer.swift */,
-				E489EC3E2D5226B900D07049 /* Calendar.swift */,
-				E4700AB22D54AC9E005374B3 /* PieChart.swift */,
+				E41F3C372D5B5C8A00F94CC7 /* TodoView */,
+				E41F3C362D5B5C8500F94CC7 /* MainView */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -461,10 +486,12 @@
 				E41F3C1B2D58E77800F94CC7 /* ErrorView.swift in Sources */,
 				E4700AB32D54AC9E005374B3 /* PieChart.swift in Sources */,
 				E489EC3B2D52245B00D07049 /* Header.swift in Sources */,
+				E41F3C352D5B59C400F94CC7 /* YearMonthPicker.swift in Sources */,
 				E41F3C2A2D59241000F94CC7 /* ScreenStruct.swift in Sources */,
 				E4700AD72D54E4AE005374B3 /* LoginView.swift in Sources */,
 				E4700AD02D54DBCD005374B3 /* UserDefaultsManager.swift in Sources */,
 				E4700AC72D54D2A4005374B3 /* FirebaseManager.swift in Sources */,
+				E41F3C312D5B537800F94CC7 /* CustomDateSlider.swift in Sources */,
 				E4E1456D2D26805A0092EFD5 /* ContentView.swift in Sources */,
 				E41F3C2D2D5B3EB400F94CC7 /* AlertState.swift in Sources */,
 				E41F3C1F2D58EB8500F94CC7 /* NavigationState.swift in Sources */,
@@ -477,6 +504,7 @@
 				E41F3C102D55CAF500F94CC7 /* ViewError.swift in Sources */,
 				E41F3C2F2D5B438200F94CC7 /* AlertEnums.swift in Sources */,
 				E4E1456B2D26805A0092EFD5 /* Hello_SwiftApp.swift in Sources */,
+				E41F3C332D5B559F00F94CC7 /* DateCell.swift in Sources */,
 				E489EC362D520CB500D07049 /* SplashView.swift in Sources */,
 				E41F3C232D58F51700F94CC7 /* TodoService.swift in Sources */,
 				E41F3C192D58E55E00F94CC7 /* ScreenEnums.swift in Sources */,
