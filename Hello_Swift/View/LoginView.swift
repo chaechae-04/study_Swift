@@ -16,6 +16,8 @@ struct LoginView: View {
     @State private var id: String = ""
     @State private var pw: String = ""
     
+    @State private var isSecured: Bool = true
+    
     var body: some View {
         
         GeometryReader { geometry in
@@ -45,9 +47,21 @@ struct LoginView: View {
                         .frame(width: ScreenSize.width * 0.85, height: ScreenSize.height * 0.1, alignment: .leading)
                         .border(.blue)
                         HStack {
-                            TextField("PW", text: $pw)
-                                .font(.system(size: ScreenSize.width * 0.06, weight: .bold))
-                                .padding(.leading, ScreenSize.width * 0.05)
+                            if isSecured {
+                                SecureField("PW", text: $pw)
+                                    .font(.system(size: ScreenSize.width * 0.06, weight: .bold))
+                                    .padding(.leading, ScreenSize.width * 0.05)
+                            } else {
+                                TextField("PW", text: $pw)
+                                    .font(.system(size: ScreenSize.width * 0.06, weight: .bold))
+                                    .padding(.leading, ScreenSize.width * 0.05)
+                            }
+                            
+                            Button(action: { isSecured.toggle() }) {
+                                Image(systemName: isSecured ? "eye.slash" : "eye")
+                                    .padding(.trailing, ScreenSize.width * 0.05)
+                                    .fontWeight(.bold)
+                            }
                         }
                         .frame(width: ScreenSize.width * 0.85, height: ScreenSize.height * 0.1, alignment: .leading)
                         .border(.blue)

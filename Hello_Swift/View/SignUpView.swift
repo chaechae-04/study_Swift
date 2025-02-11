@@ -23,6 +23,8 @@ struct SignUpView: View {
     @State private var birthday: String = "2000-1-1"
     @State private var selectedDate: Date = Calendar.current.date(from: DateComponents(year: 2000, month: 1, day: 1)) ?? Date()
     
+    @State private var isSecured: Bool = true
+    
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -62,15 +64,27 @@ struct SignUpView: View {
                             )
                             .onTapGesture { currentTextField = "id" }
                         
-                        TextField("PW", text: $pw)
-                            .frame(width: ScreenSize.width * 0.8, height: ScreenSize.height * 0.05)
-                            .padding(.leading, ScreenSize.width * 0.05)
-                            .padding(.trailing, ScreenSize.width * 0.05)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 15)
-                                    .stroke(currentTextField == "pw" ? Color.Colors.customDarkBlue : Color.Colors.customGray, lineWidth: 1)
-                            )
-                            .onTapGesture { currentTextField = "pw" }
+                        HStack {
+                            if isSecured {
+                                SecureField("PW", text: $pw)
+                            } else {
+                                TextField("PW", text: $pw)
+                            }
+                            
+                            Button(action: { isSecured.toggle() }) {
+                                Image(systemName: isSecured ? "eye.slash" : "eye")
+                                    .fontWeight(.bold)
+                                    .foregroundStyle(currentTextField == "pw" ? Color.Colors.customBlack : Color.Colors.customGray)
+                            }
+                        }
+                        .frame(width: ScreenSize.width * 0.8, height: ScreenSize.height * 0.05)
+                        .padding(.leading, ScreenSize.width * 0.05)
+                        .padding(.trailing, ScreenSize.width * 0.05)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 15)
+                                .stroke(currentTextField == "pw" ? Color.Colors.customDarkBlue : Color.Colors.customGray, lineWidth: 1)
+                        )
+                        .onTapGesture { currentTextField = "pw" }
                         
                         TextField("Email", text: $email)
                             .frame(width: ScreenSize.width * 0.8, height: ScreenSize.height * 0.05)
