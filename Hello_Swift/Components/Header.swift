@@ -10,6 +10,8 @@ import SwiftUI
 struct Header: View {
     
     @EnvironmentObject var navState: NavigationState
+    @StateObject var sheetAlertState: AlertState = AlertState()
+    
     @State private var iconName: String = "sun.haze"
     @State private var isIconActive: Bool = false
     @State private var showSideMenu: Bool = false
@@ -62,11 +64,19 @@ struct Header: View {
                 Text("프로필")
                 
                 Button(action: {
-                    withAnimation(.easeInOut(duration: 0.3)) {
-                        showSideMenu = false
+                    sheetAlertState.buttonType = .double
+                    
+                    sheetAlertState.title = "Logout"
+                    sheetAlertState.isPresented = true
+                    sheetAlertState.message = "정말 로그아웃 하시겠습니까 ?"
+                    
+                    sheetAlertState.primaryAction = {
+                        withAnimation(.easeInOut(duration: 0.3)) {
+                            showSideMenu = false
+                        }
+                        navState.currentScreen = .logIn
+                        UserDefaultsManager.shared.clearUser()
                     }
-                    navState.currentScreen = .logIn
-                    UserDefaultsManager.shared.clearUser()
                 }) {
                     Text("Logout")
                         .foregroundColor(Color.Colors.customDarkRed)
@@ -74,10 +84,24 @@ struct Header: View {
                 Spacer()
             }
             .frame(width: width)
+            .alert(isPresented: $sheetAlertState.isPresented) {
+                Alert(
+                    title: Text(sheetAlertState.title),
+                    message: Text(sheetAlertState.message),
+                    primaryButton: .destructive(Text("예")) {
+                        sheetAlertState.primaryAction?()
+                    },
+                    secondaryButton: .cancel(Text("아니요")) {
+                        sheetAlertState.secondaryAction?()
+                    }
+                    
+                )
+            }
         }
     }
 }
 
 #Preview {
-    MainView()
+//    MainView()
+    ContentView()
 }

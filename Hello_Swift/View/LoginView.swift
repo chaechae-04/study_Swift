@@ -10,15 +10,11 @@ import SwiftUI
 struct LoginView: View {
     
     @EnvironmentObject var navState: NavigationState
+    @EnvironmentObject var alertState: AlertState
     @StateObject private var userService = UserService()
-    
-    @State private var errorType: String = ""
-    @State private var errorMessage: String = ""
     
     @State private var id: String = ""
     @State private var pw: String = ""
-    
-    @State private var showAlert: Bool = false
     
     var body: some View {
         
@@ -56,13 +52,6 @@ struct LoginView: View {
                         .frame(width: ScreenSize.width * 0.85, height: ScreenSize.height * 0.1, alignment: .leading)
                         .border(.blue)
                     }
-                    .alert(isPresented: $showAlert) {
-                        Alert(
-                            title: Text(errorType),
-                            message: Text(errorMessage),
-                            dismissButton: .default(Text("OK"))
-                        )
-                    }
                 }
                 .frame(width: ScreenSize.width * 0.85, height: ScreenSize.height * 0.2)
                 .foregroundStyle(Color.Colors.customBlack)
@@ -77,17 +66,23 @@ struct LoginView: View {
                                 let user = try await userService.signIn(id: id, password: pw)
                                 UserDefaultsManager.shared.saveUser(user)
                                 
-                                navState.currentScreen = .main
+                                alertState.title = "Welcome !"
+                                alertState.isPresented = true
+                                alertState.message = "환영합니다 !"
+                                
+                                alertState.primaryAction = {
+                                    navState.currentScreen = .main
+                                }
                                 
                             } catch let error as UserError {
-                                errorType = "Login Error"
-                                showAlert = true
-                                errorMessage = error.errorDescription ?? "로그인 중 오류가 발생했어요."
+                                alertState.title = "Login Error"
+                                alertState.isPresented = true
+                                alertState.message = error.errorDescription ?? "로그인 중 오류가 발생했어요."
                                 
                             } catch {
-                                errorType = "Login Error"
-                                showAlert = true
-                                errorMessage = "로그인 중 오류가 발생했어요."
+                                alertState.title = "Login Error"
+                                alertState.isPresented = true
+                                alertState.message = "로그인 중 오류가 발생했어요."
                             }
                         }
                     } label: {

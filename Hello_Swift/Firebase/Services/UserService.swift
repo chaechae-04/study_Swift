@@ -45,6 +45,11 @@ class UserService: ObservableObject {
         )
     }
     
+    func checkUserExists(id: String) async throws -> Bool {
+        let document = try await db.collection("users").document(id).getDocument()
+        return document.exists
+    }
+    
     /* 회원가입 */
     func signUp(id: String, email: String, password: String, name: String, birthday: String) async throws -> UserModel {
         
@@ -56,7 +61,7 @@ class UserService: ObservableObject {
         guard !birthday.isEmpty else { throw UserError.emptyBirthday }
         
         // ID 중복 체크
-        if let _ = try await getUser(id: id) { throw UserError.duplicateId }
+        if try await checkUserExists(id: id) { throw UserError.duplicateId }
         // Email 형식 검사
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         guard NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: email) else { throw UserError.invalidEmail }

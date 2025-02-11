@@ -10,6 +10,7 @@ import SwiftUI
 struct SignUpView: View {
     
     @EnvironmentObject var navState: NavigationState
+    @EnvironmentObject var alertState: AlertState
     @StateObject private var userService = UserService()
     
     @State private var id: String = ""
@@ -21,10 +22,6 @@ struct SignUpView: View {
     
     @State private var birthday: String = "2000-1-1"
     @State private var selectedDate: Date = Calendar.current.date(from: DateComponents(year: 2000, month: 1, day: 1)) ?? Date()
-    
-    @State private var showAlert: Bool = false
-    @State private var errorType: String = ""
-    @State private var errorMessage: String = ""
     
     var body: some View {
         GeometryReader { geometry in
@@ -121,21 +118,25 @@ struct SignUpView: View {
                         print("ID : \(id)\nPW : \(pw)\nEmail : \(email)\nName : \(name)\nBirthDay : \(birthday)")
                         Task {
                             do {
-                                let user = try await userService.signUp(id: id, email: email, password: pw, name: name, birthday: birthday)
+                                let _ = try await userService.signUp(id: id, email: email, password: pw, name: name, birthday: birthday)
                                 
-                                print("OK")
-                                print(user)
+                                alertState.title = "Welcome !"
+                                alertState.isPresented = true
+                                alertState.message = "회원가입에 성공하였습니다 !"
                                 
+                                alertState.primaryAction = {
+                                    navState.currentScreen = .logIn
+                                }
                                 
                             } catch let error as UserError {
-                                errorType = "SignUp Error"
-                                showAlert = true
-                                errorMessage = error.errorDescription ?? "회원가입 중 오류가 발생했어요."
+                                alertState.title = "SignUp Error"
+                                alertState.isPresented = true
+                                alertState.message = error.errorDescription ?? "회원가입 중 오류가 발생했어요."
                                 
                             } catch {
-                                errorType = "SignUp Error"
-                                showAlert = true
-                                errorMessage = "회원가입 중 오류가 발생했어요."
+                                alertState.title = "SignUp Error"
+                                alertState.isPresented = true
+                                alertState.message = "회원가입 중 오류가 발생했어요."
                             }
                         }
                     }) {
@@ -144,13 +145,6 @@ struct SignUpView: View {
                 }
                 .frame(width: ScreenSize.width, height: ScreenSize.height * 0.25)
                 .border(Color.Colors.customDarkBlue)
-                .alert(isPresented: $showAlert) {
-                    Alert(
-                        title: Text(errorType),
-                        message: Text(errorMessage),
-                        dismissButton: .default(Text("OK"))
-                    )
-                }
             }
         }
     }

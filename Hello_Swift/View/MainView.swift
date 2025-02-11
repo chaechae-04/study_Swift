@@ -10,6 +10,7 @@ import SwiftUI
 struct MainView: View {
     
     @EnvironmentObject var navState: NavigationState
+    @EnvironmentObject var alertState: AlertState
     
     var body: some View {
         VStack {
@@ -69,6 +70,7 @@ struct MainView: View {
 
 
 #Preview {
-    ContentView()
+//    ContentView()
+    MainView()
 }
 
