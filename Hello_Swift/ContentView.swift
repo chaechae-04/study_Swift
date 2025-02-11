@@ -19,7 +19,7 @@ struct ContentView: View {
         ZStack {
             mainContent
 //          Preview 보기 편하게 주석처리 함
-//            splashContent
+            splashContent
         }
         .animation(.easeInOut(duration: 0.3), value: navState.currentScreen)
         .alert(isPresented: $alertState.isPresented) {

@@ -33,7 +33,7 @@ struct TodoView: View {
             
             /* MAIN */
             Group {
-                Text("Diary")
+                Text("Todo")
             }
             .frame(width: ScreenSize.width, height: ScreenSize.height * 0.7)
             .border(.blue)

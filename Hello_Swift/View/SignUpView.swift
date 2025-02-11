@@ -119,11 +119,10 @@ struct SignUpView: View {
                         .padding(.leading, ScreenSize.width * 0.05)
                         .overlay {
                             RoundedRectangle(cornerRadius: 15)
-                                .stroke(currentTextField == "birthday" ? Color.Colors.customDarkBlue : Color.Colors.customGray, lineWidth: 1)
+                                .stroke(Color.Colors.customBlack, lineWidth: 1)
                         }
                     }
                     .padding(ScreenSize.width * 0.05)
-                    
                 }
                 .frame(width: ScreenSize.width, height: ScreenSize.height * 0.45, alignment: .topLeading)
                 
@@ -147,10 +146,14 @@ struct SignUpView: View {
                                 alertState.isPresented = true
                                 alertState.message = error.errorDescription ?? "회원가입 중 오류가 발생했어요."
                                 
+                                alertState.primaryAction = {}
+                                
                             } catch {
                                 alertState.title = "SignUp Error"
                                 alertState.isPresented = true
                                 alertState.message = "회원가입 중 오류가 발생했어요."
+                                
+                                alertState.primaryAction = {}
                             }
                         }
                     }) {

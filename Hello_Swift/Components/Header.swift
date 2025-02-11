@@ -94,7 +94,6 @@ struct Header: View {
                     secondaryButton: .cancel(Text("아니요")) {
                         sheetAlertState.secondaryAction?()
                     }
-                    
                 )
             }
         }
