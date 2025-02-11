@@ -13,6 +13,6 @@ import Combine
 class TodoService: ObservableObject {
     @Published var crrentUser: UserModel?
     
-    static let shared = UserService()
+    static let shared = TodoService()
     private let db = Firestore.firestore()
 }
