@@ -18,8 +18,10 @@ struct ContentView: View {
         
         ZStack {
             mainContent
-//          Preview 보기 편하게 주석처리 함
             splashContent
+        }
+        .onAppear {
+            loginCheck()
         }
         .animation(.easeInOut(duration: 0.3), value: navState.currentScreen)
         .alert(isPresented: $alertState.isPresented) {
@@ -86,6 +88,14 @@ struct ContentView: View {
         try? await Task.sleep(for: .seconds(0.3))
         withAnimation {
             splashState = .hidden
+        }
+    }
+    
+    private func loginCheck() {
+        if let _ = UserDefaultsManager.shared.getCurrentUser() {
+            navState.currentScreen = .main
+        } else {
+            navState.currentScreen = .logIn
         }
     }
 }
