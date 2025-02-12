@@ -70,24 +70,7 @@ struct TodoView: View {
                         Spacer()
                         
                         Button(action: {
-                            let todo = TodoModel(
-                                id: UUID().uuidString,
-                                userId: "admin",
-                                category: "학업",
-                                dateTime: Date(),
-                                title: "제목",
-                                content: "내용",
-                                complete: false
-                            )
-                            
-                            Task {
-                                do {
-                                    try await TodoService.shared.saveTodo(todo)
-                                    print("ok")
-                                } catch {
-                                    print("saver Error: \(error)")
-                                }
-                            }
+                            print("add action")
                         }) {
                             Image(systemName: "plus.app")
                                 .resizable()
