@@ -56,6 +56,8 @@ struct TodoView: View {
                             Task {
                                 do {
                                     try await TodoService.shared.toggleComplete(id: todo.id, isComplete: !todo.complete)
+                                    
+                                    await loadTodos()
                                 } catch {
                                     print("Toggle failed: \(error)")
                                 }

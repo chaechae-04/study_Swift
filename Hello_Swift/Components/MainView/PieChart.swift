@@ -18,6 +18,8 @@ struct PieChart: View {
     let height: CGFloat
     
     /* TEMP */
+    let colors: [Color] = [Color.green, Color.blue, Color.orange]
+    
     let categories = [
         ("카테고리1", 0.3, Color.green),
         ("공부", 0.5, Color.blue),
@@ -102,5 +104,6 @@ struct PieChart: View {
 }
 
 #Preview {
-    MainView()
+    ContentView()
+//    MainView()
 }
