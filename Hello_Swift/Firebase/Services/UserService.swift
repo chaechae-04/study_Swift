@@ -50,7 +50,7 @@ class UserService: ObservableObject {
         return document.exists
     }
     
-    /* 회원가입 */
+    /** 회원가입 */
     func signUp(id: String, email: String, password: String, name: String, birthday: String) async throws -> UserModel {
         
         // 빈값 체크
@@ -78,7 +78,16 @@ class UserService: ObservableObject {
         return user
     }
     
-    /* 로그인 */
+    /** 회원탈퇴 */
+    func deleteUser(id: String) async throws {
+        
+        guard let user = try await getUser(id: id) else { throw UserError.userNotFound }
+        
+        try await db.collection("users").document(id).delete()
+        UserDefaultsManager.shared.clearUser()
+    }
+    
+    /** 로그인 */
     func signIn(id: String, password: String) async throws -> UserModel {
         
         guard !id.isEmpty else { throw UserError.emptyId }
@@ -92,7 +101,7 @@ class UserService: ObservableObject {
         return user
     }
     
-    /* 로그아웃 */
+    /** 로그아웃 */
     func signOut() throws {
         UserDefaultsManager.shared.clearUser()
     }

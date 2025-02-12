@@ -82,7 +82,7 @@ struct LoginView: View {
                                 
                                 alertState.title = "Welcome !"
                                 alertState.isPresented = true
-                                alertState.message = "환영합니다 !"
+                                alertState.message = "\(user.name) 님, 환영합니다 !"
                                 
                                 alertState.primaryAction = {
                                     DispatchQueue.main.async {

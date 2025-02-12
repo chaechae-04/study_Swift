@@ -63,6 +63,8 @@ struct Header: View {
             VStack {
                 Text("프로필")
                 
+                Spacer()
+                
                 Button(action: {
                     sheetAlertState.buttonType = .double
                     
@@ -83,6 +85,40 @@ struct Header: View {
                     Text("Logout")
                         .foregroundColor(Color.Colors.customDarkRed)
                 }
+                
+                Spacer()
+                
+                Button(action: {
+                    sheetAlertState.buttonType = .double
+                    
+                    sheetAlertState.title = "회원탈퇴"
+                    sheetAlertState.isPresented = true
+                    sheetAlertState.message = "정말 탈퇴하시겠습니까 ?\n삭제된 데이터는 되돌릴 수 없습니다."
+                    
+                    sheetAlertState.primaryAction = {
+                        Task {
+                            do {
+                                try await UserService.shared.deleteUser(id: UserDefaultsManager.shared.getCurrentUser()?.id ?? "User")
+                                
+                                withAnimation(.easeInOut(duration: 0.3)) {
+                                    showSideMenu = false
+                                }
+                                DispatchQueue.main.async {
+                                    navState.currentScreen = .logIn
+                                }
+                                
+                            } catch let error as UserError {
+                                print("회원탈퇴 에러 : \(error.localizedDescription)")
+                            } catch {
+                                print("회원탈퇴 에러 : 회원탈퇴 중 에러가 발생했습니다.")
+                            }
+                        }
+                    }
+                }) {
+                    Text("회원탈퇴")
+                        .foregroundStyle(Color.Colors.customDarkRed)
+                }
+                
                 Spacer()
             }
             .frame(width: width)
@@ -103,6 +139,6 @@ struct Header: View {
 }
 
 #Preview {
-//    MainView()
-    ContentView()
+    MainView()
+//    ContentView()
 }
