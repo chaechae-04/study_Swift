@@ -22,6 +22,7 @@
 		E41F3C312D5B537800F94CC7 /* CustomDateSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C302D5B537800F94CC7 /* CustomDateSlider.swift */; };
 		E41F3C332D5B559F00F94CC7 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C322D5B559F00F94CC7 /* DateCell.swift */; };
 		E41F3C352D5B59C400F94CC7 /* YearMonthPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C342D5B59C400F94CC7 /* YearMonthPicker.swift */; };
+		E41F3C392D5C607A00F94CC7 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C382D5C607A00F94CC7 /* TodoItem.swift */; };
 		E4700AB32D54AC9E005374B3 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4700AB22D54AC9E005374B3 /* PieChart.swift */; };
 		E4700AB82D54D018005374B3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E4700AB72D54D018005374B3 /* FirebaseAnalytics */; };
 		E4700AC12D54D1C1005374B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4700AC02D54D1C1005374B3 /* GoogleService-Info.plist */; };
@@ -81,6 +82,7 @@
 		E41F3C302D5B537800F94CC7 /* CustomDateSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateSlider.swift; sourceTree = "<group>"; };
 		E41F3C322D5B559F00F94CC7 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		E41F3C342D5B59C400F94CC7 /* YearMonthPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearMonthPicker.swift; sourceTree = "<group>"; };
+		E41F3C382D5C607A00F94CC7 /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
 		E4700AB22D54AC9E005374B3 /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
 		E4700AC02D54D1C1005374B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E4700AC62D54D2A4005374B3 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				E41F3C302D5B537800F94CC7 /* CustomDateSlider.swift */,
 				E41F3C322D5B559F00F94CC7 /* DateCell.swift */,
 				E41F3C342D5B59C400F94CC7 /* YearMonthPicker.swift */,
+				E41F3C382D5C607A00F94CC7 /* TodoItem.swift */,
 			);
 			path = TodoView;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				E4700AD02D54DBCD005374B3 /* UserDefaultsManager.swift in Sources */,
 				E4700AC72D54D2A4005374B3 /* FirebaseManager.swift in Sources */,
 				E41F3C312D5B537800F94CC7 /* CustomDateSlider.swift in Sources */,
+				E41F3C392D5C607A00F94CC7 /* TodoItem.swift in Sources */,
 				E4E1456D2D26805A0092EFD5 /* ContentView.swift in Sources */,
 				E41F3C2D2D5B3EB400F94CC7 /* AlertState.swift in Sources */,
 				E41F3C1F2D58EB8500F94CC7 /* NavigationState.swift in Sources */,
