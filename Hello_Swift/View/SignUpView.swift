@@ -180,7 +180,9 @@ struct SignUpView: View {
                                 alertState.message = "회원가입에 성공하였습니다 !"
                                 
                                 alertState.primaryAction = {
-                                    navState.currentScreen = .logIn
+                                    DispatchQueue.main.async {
+                                        navState.currentScreen = .logIn
+                                    }
                                 }
                                 
                             } catch let error as UserError {

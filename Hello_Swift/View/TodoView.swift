@@ -31,9 +31,11 @@ struct TodoView: View {
                 Spacer()
                 
                 Button(action: {
-                    navState.currentScreen = .main
+                    DispatchQueue.main.async {
+                        navState.currentScreen = .main
+                    }
                 }) {
-                    Image(systemName: "chevron.forward")
+                    Image(systemName: "chevron.backward")
                         .resizable()
                         .scaledToFit()
                         .frame(width: ScreenSize.width * 0.15, height: ScreenSize.height * 0.025)

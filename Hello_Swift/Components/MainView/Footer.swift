@@ -19,7 +19,9 @@ struct Footer: View {
         HStack(spacing: width * 0.125) {
             /* 버튼 1 */
             Button(action: {
-                navState.currentScreen = .todo
+                DispatchQueue.main.async {
+                    navState.currentScreen = .todo
+                }
             }) {
                 Image(systemName: "list.bullet")
                     .resizable()
@@ -28,7 +30,9 @@ struct Footer: View {
             }
             /* 버튼 2 */
             Button(action: {
-                navState.currentScreen = .diary
+                DispatchQueue.main.async {
+                    navState.currentScreen = .diary
+                }
             }) {
                 Image(systemName: "pencil.circle")
                     .resizable()

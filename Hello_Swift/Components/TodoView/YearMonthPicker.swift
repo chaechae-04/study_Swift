@@ -56,10 +56,5 @@ struct YearMonthPicker: View {
         components.month = month
         components.day = 1
         date = Calendar.current.date(from: components) ?? date
-//        selectedDate = date
     }
 }
-
-//#Preview {
-//    YearMonthPicker()
-//}

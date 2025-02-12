@@ -20,7 +20,7 @@ struct ContentView: View {
             mainContent
             splashContent
         }
-        .onAppear {
+        .onAppear { @MainActor in
             loginCheck()
         }
         .animation(.easeInOut(duration: 0.3), value: navState.currentScreen)

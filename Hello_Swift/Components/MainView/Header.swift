@@ -74,7 +74,9 @@ struct Header: View {
                         withAnimation(.easeInOut(duration: 0.3)) {
                             showSideMenu = false
                         }
-                        navState.currentScreen = .logIn
+                        DispatchQueue.main.async {
+                            navState.currentScreen = .logIn
+                        }
                         UserDefaultsManager.shared.clearUser()
                     }
                 }) {

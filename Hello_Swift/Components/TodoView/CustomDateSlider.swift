@@ -23,7 +23,6 @@ struct CustomDateSlider: View {
     init(selectedDate: Binding<Date>, baseDate: Date) {
         self._selectedDate = selectedDate
         self.baseDate = baseDate
-        _selectedDate.wrappedValue = Date()
     }
     
     private var daysInMonth: [Date] {
@@ -93,7 +92,3 @@ extension DateFormatter {
         return formatter
     }()
 }
-
-//#Preview {
-//    TodoView()
-//}

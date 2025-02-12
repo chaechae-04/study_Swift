@@ -85,7 +85,9 @@ struct LoginView: View {
                                 alertState.message = "환영합니다 !"
                                 
                                 alertState.primaryAction = {
-                                    navState.currentScreen = .main
+                                    DispatchQueue.main.async {
+                                        navState.currentScreen = .main
+                                    }
                                 }
                                 
                             } catch let error as UserError {
@@ -111,7 +113,9 @@ struct LoginView: View {
                     
                     /* SignUp */
                     Button(action: {
-                        navState.currentScreen = .signUp
+                        DispatchQueue.main.async {
+                            navState.currentScreen = .signUp
+                        }
                     }) {
                         ZStack {
                             Color.clear
