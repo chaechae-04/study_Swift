@@ -12,6 +12,8 @@ struct DateCell: View {
     let date: Date
     let isSelected: Bool
     
+    /* 반응형 디자인으로 바꿔야함 */
+    
     var body: some View {
         VStack {
             Text("\(date.formatted(.dateTime.day()))")

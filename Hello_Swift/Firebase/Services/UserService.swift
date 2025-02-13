@@ -81,7 +81,7 @@ class UserService: ObservableObject {
     /** 회원탈퇴 */
     func deleteUser(id: String) async throws {
         
-        guard let user = try await getUser(id: id) else { throw UserError.userNotFound }
+        guard let _ = try await getUser(id: id) else { throw UserError.userNotFound }
         
         try await db.collection("users").document(id).delete()
         UserDefaultsManager.shared.clearUser()

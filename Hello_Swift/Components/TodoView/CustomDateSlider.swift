@@ -15,6 +15,8 @@ struct CustomDateSlider: View {
     @State private var scrollOffset: CGFloat = 0
     @GestureState private var dragOffset: CGFloat = 0
     
+    /* 반응형 디자인으로 바꿔야함 */
+    
     private let cellWidth: CGFloat = 80
     private let cellSpacing: CGFloat = 10
     
