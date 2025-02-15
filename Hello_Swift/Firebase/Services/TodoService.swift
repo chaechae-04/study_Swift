@@ -43,7 +43,42 @@ class TodoService: ObservableObject {
         return (todos, categories)
     }
     
-    /** Todo 저장 */
+    /** Todo 유효성 검사 */
+    func validateTodoItem(userId: String, dateTime: String, category: String, title: String, content: String, complete: Bool) async throws {
+        
+        // 빈칸 검사
+        guard !userId.isEmpty else { throw TodoError.invalidId }
+        guard !category.isEmpty else { throw TodoError.invalidCategory }
+        guard !dateTime.isEmpty else { throw TodoError.invalidDateTime }
+        guard !title.isEmpty else { throw TodoError.invalidTitle }
+        guard !content.isEmpty else { throw TodoError.invalidContent }
+        
+        // 날짜, 시간 검사
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        guard let dt = dateFormatter.date(from: dateTime) else {
+            throw TodoError.invalidDateTime
+        }
+        
+        // 길이 검사
+        guard category.count <= 20 else { throw TodoError.categoryTooLong }
+        guard title.count <= 30 else { throw TodoError.titleTooLong }
+        guard content.count <= 500 else { throw TodoError.contentTooLong }
+        
+        let todo = TodoModel(
+            id: UUID().uuidString,
+            userId: userId,
+            category: category,
+            dateTime: dt,
+            title: title,
+            content: content,
+            complete: false
+        )
+        
+        try await saveTodo(todo)
+    }
+    
+    /** Todo Database 저장 */
     func saveTodo(_ todo: TodoModel) async throws {
         try await db.collection("todos").document(todo.id).setData([
             "id": todo.id,

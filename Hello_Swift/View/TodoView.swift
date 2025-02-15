@@ -72,7 +72,9 @@ struct TodoView: View {
                         Spacer()
                         
                         Button(action: {
-                            print("add action")
+                            DispatchQueue.main.async {
+                                navState.currentScreen = .newTodo
+                            }
                         }) {
                             Image(systemName: "plus.app")
                                 .resizable()

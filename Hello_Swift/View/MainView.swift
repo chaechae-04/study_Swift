@@ -70,7 +70,7 @@ struct MainView: View {
 
 
 #Preview {
-//    ContentView()
-    MainView()
+    ContentView()
+//    MainView()
 }
 

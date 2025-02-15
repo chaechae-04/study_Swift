@@ -18,7 +18,7 @@ struct ContentView: View {
         
         ZStack {
             mainContent
-            splashContent
+//            splashContent
         }
         .onAppear { @MainActor in
             loginCheck()
@@ -66,6 +66,9 @@ struct ContentView: View {
         case .todo:
             TodoView()
                 .transition(.move(edge: .leading))
+        case .newTodo:
+            NewTodoItemView()
+                .transition(.opacity)
         case .diary:
             DiaryView()
                 .transition(.move(edge: .leading))

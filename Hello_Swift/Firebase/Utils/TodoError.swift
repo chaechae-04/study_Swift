@@ -14,6 +14,9 @@ enum TodoError: LocalizedError {
     case invalidTitle
     case invalidContent
     case invalidComplete
+    case categoryTooLong
+    case titleTooLong
+    case contentTooLong
     
     var errorDescription: String? {
         switch self {
@@ -29,6 +32,12 @@ enum TodoError: LocalizedError {
             return "Error: Content"
         case .invalidComplete:
             return "Error: Complete"
+        case .categoryTooLong:
+            return "Error: Category Too Long"
+        case .titleTooLong:
+            return "Error: Title Too Long"
+        case .contentTooLong:
+            return "Error: Content Too Long"
         }
     }
 }

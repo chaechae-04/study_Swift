@@ -23,6 +23,7 @@
 		E41F3C332D5B559F00F94CC7 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C322D5B559F00F94CC7 /* DateCell.swift */; };
 		E41F3C352D5B59C400F94CC7 /* YearMonthPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C342D5B59C400F94CC7 /* YearMonthPicker.swift */; };
 		E41F3C392D5C607A00F94CC7 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C382D5C607A00F94CC7 /* TodoItem.swift */; };
+		E41F3C3E2D6098FD00F94CC7 /* NewTodoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C3D2D6098FD00F94CC7 /* NewTodoItemView.swift */; };
 		E4700AB32D54AC9E005374B3 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4700AB22D54AC9E005374B3 /* PieChart.swift */; };
 		E4700AB82D54D018005374B3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E4700AB72D54D018005374B3 /* FirebaseAnalytics */; };
 		E4700AC12D54D1C1005374B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4700AC02D54D1C1005374B3 /* GoogleService-Info.plist */; };
@@ -83,6 +84,7 @@
 		E41F3C322D5B559F00F94CC7 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		E41F3C342D5B59C400F94CC7 /* YearMonthPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearMonthPicker.swift; sourceTree = "<group>"; };
 		E41F3C382D5C607A00F94CC7 /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
+		E41F3C3D2D6098FD00F94CC7 /* NewTodoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTodoItemView.swift; sourceTree = "<group>"; };
 		E4700AB22D54AC9E005374B3 /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
 		E4700AC02D54D1C1005374B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E4700AC62D54D2A4005374B3 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				E41F3C322D5B559F00F94CC7 /* DateCell.swift */,
 				E41F3C342D5B59C400F94CC7 /* YearMonthPicker.swift */,
 				E41F3C382D5C607A00F94CC7 /* TodoItem.swift */,
+				E41F3C3D2D6098FD00F94CC7 /* NewTodoItemView.swift */,
 			);
 			path = TodoView;
 			sourceTree = "<group>";
@@ -262,8 +265,6 @@
 		E489EC392D52244E00D07049 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				E41F3C372D5B5C8A00F94CC7 /* TodoView */,
-				E41F3C362D5B5C8500F94CC7 /* MainView */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -335,12 +336,14 @@
 			isa = PBXGroup;
 			children = (
 				E489EC352D520CB500D07049 /* SplashView.swift */,
-				E489EC372D52126100D07049 /* MainView.swift */,
 				E4700AD62D54E4AE005374B3 /* LoginView.swift */,
 				E4700ADA2D54F090005374B3 /* SignUpView.swift */,
+				E489EC372D52126100D07049 /* MainView.swift */,
+				E41F3C362D5B5C8500F94CC7 /* MainView */,
 				E41F3C0D2D55CAB800F94CC7 /* TodoView.swift */,
-				E41F3C1A2D58E77800F94CC7 /* ErrorView.swift */,
+				E41F3C372D5B5C8A00F94CC7 /* TodoView */,
 				E41F3C262D58F66900F94CC7 /* DiaryView.swift */,
+				E41F3C1A2D58E77800F94CC7 /* ErrorView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				E4E1456B2D26805A0092EFD5 /* Hello_SwiftApp.swift in Sources */,
 				E41F3C332D5B559F00F94CC7 /* DateCell.swift in Sources */,
 				E489EC362D520CB500D07049 /* SplashView.swift in Sources */,
+				E41F3C3E2D6098FD00F94CC7 /* NewTodoItemView.swift in Sources */,
 				E41F3C232D58F51700F94CC7 /* TodoService.swift in Sources */,
 				E41F3C192D58E55E00F94CC7 /* ScreenEnums.swift in Sources */,
 				E4700AC92D54D372005374B3 /* UserModel.swift in Sources */,
