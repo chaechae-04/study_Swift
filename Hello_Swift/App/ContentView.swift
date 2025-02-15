@@ -18,7 +18,7 @@ struct ContentView: View {
         
         ZStack {
             mainContent
-//            splashContent
+            splashContent
         }
         .onAppear { @MainActor in
             loginCheck()

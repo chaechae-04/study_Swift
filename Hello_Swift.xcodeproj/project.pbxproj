@@ -143,6 +143,8 @@
 		E41F3C112D58E48500F94CC7 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				E4E1456C2D26805A0092EFD5 /* ContentView.swift */,
+				E4E145952D27D4200092EFD5 /* View */,
 				E41F3C122D58E49200F94CC7 /* Models */,
 			);
 			path = App;
@@ -262,13 +264,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E489EC392D52244E00D07049 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
 		E4E1455E2D26805A0092EFD5 = {
 			isa = PBXGroup;
 			children = (
@@ -293,12 +288,9 @@
 		E4E145692D26805A0092EFD5 /* Hello_Swift */ = {
 			isa = PBXGroup;
 			children = (
-				E4700AC22D54D1DC005374B3 /* Firebase */,
-				E489EC392D52244E00D07049 /* Components */,
-				E4E145952D27D4200092EFD5 /* View */,
-				E4E1456A2D26805A0092EFD5 /* Hello_SwiftApp.swift */,
-				E4E1456C2D26805A0092EFD5 /* ContentView.swift */,
 				E41F3C112D58E48500F94CC7 /* App */,
+				E4E1456A2D26805A0092EFD5 /* Hello_SwiftApp.swift */,
+				E4700AC22D54D1DC005374B3 /* Firebase */,
 				E4E1456E2D26805B0092EFD5 /* Assets.xcassets */,
 				E4E145702D26805B0092EFD5 /* Hello_Swift.entitlements */,
 				E4E145712D26805B0092EFD5 /* Preview Content */,
