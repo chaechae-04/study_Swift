@@ -10,6 +10,7 @@ import SwiftUI
 struct TodoView: View {
     
     @EnvironmentObject var navState: NavigationState
+    @EnvironmentObject var alertState: AlertState
     
     @State private var baseDate: Date = Calendar.current.date(from: DateComponents(year: 2025, month: 1, day: 1)) ?? Date()
     @State private var selectedDate: Date = Calendar.current.date(from: DateComponents(year: 2025, month: 1, day: 1)) ?? Date()
@@ -60,6 +61,23 @@ struct TodoView: View {
                                     await loadTodos()
                                 } catch {
                                     print("Toggle failed: \(error)")
+                                }
+                            }
+                        }, deleteAction: {
+                            alertState.isPresented = true
+                            alertState.buttonType = .double
+                            alertState.title = "Delete Todo Item"
+                            alertState.message = "삭제하시겠습니까 ?"
+                            
+                            alertState.primaryAction = {
+                                Task {
+                                    do {
+                                        try await TodoService.shared.deleteTodo(id: todo.id)
+                                        
+                                        await loadTodos()
+                                    } catch {
+                                        print("Delete Failed: \(error)")
+                                    }
                                 }
                             }
                         })
@@ -118,13 +136,19 @@ struct TodoView: View {
         guard let userId = UserDefaultsManager.shared.getCurrentUser()?.id else { return }
         do {
             todos = try await TodoService.shared.fetchTodoByDate(userId: userId, date: selectedDate)
+        } catch let error as TodoError {
+            alertState.title = "Todo Error"
+            alertState.isPresented = true
+            alertState.message = error.errorDescription ?? "Todo Load 중 오류가 발생했어요."
+            
         } catch {
-            print("Error: \(error)")
+            alertState.title = "Login Error"
+            alertState.isPresented = true
+            alertState.message = "Todo Load 중 오류가 발생했어요."
         }
     }
 }
 
 #Preview {
     ContentView()
-//    TodoView()
 }

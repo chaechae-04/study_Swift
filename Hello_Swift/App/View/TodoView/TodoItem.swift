@@ -9,8 +9,11 @@ import SwiftUI
 
 struct TodoItem: View {
     
+    @EnvironmentObject var alertState: AlertState
+    
     let todo: TodoModel
     let onToggle: () -> Void
+    let deleteAction: () -> Void
     
     var body: some View {
         HStack {
@@ -28,6 +31,14 @@ struct TodoItem: View {
             }
             
             Spacer()
+            
+            Button(action: deleteAction) {
+                Image(systemName: "trash.square")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: ScreenSize.width * 0.075)
+                    .foregroundColor(Color.Colors.customDarkRed)
+            }
         }
         .frame(width: ScreenSize.width * 0.8, height: ScreenSize.height * 0.1)
         .padding(.horizontal, ScreenSize.width * 0.05)

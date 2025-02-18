@@ -59,7 +59,6 @@ struct NewTodoItemView: View {
                 Text("\(UserDefaultsManager.shared.getCurrentUser()?.id ?? "userEmpty")")
             }
             .frame(width: ScreenSize.width * 0.8, height: ScreenSize.height * 0.05)
-            .border(.blue)
             
             HStack {
                 TextField("Category", text: $category)
@@ -141,6 +140,16 @@ struct NewTodoItemView: View {
                 }
                 
                 Spacer()
+                
+                Button(action: {
+                    
+                }) {
+                    Image(systemName: "trash.square")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: ScreenSize.width * 0.075)
+                        .foregroundColor(Color.Colors.customDarkRed)
+                }
             }
             .frame(width: ScreenSize.width * 0.8, height: ScreenSize.height * 0.1)
             .padding(.horizontal, ScreenSize.width * 0.05)
@@ -204,6 +213,6 @@ struct NewTodoItemView: View {
 }
 
 #Preview {
-    ContentView()
-//    NewTodoItemView()
+//    ContentView()
+    NewTodoItemView()
 }
