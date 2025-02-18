@@ -139,6 +139,5 @@ struct Header: View {
 }
 
 #Preview {
-    MainView()
-//    ContentView()
+    ContentView()
 }

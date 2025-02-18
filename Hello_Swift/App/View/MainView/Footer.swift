@@ -64,5 +64,5 @@ struct Footer: View {
 }
 
 #Preview {
-    MainView()
+    ContentView()
 }

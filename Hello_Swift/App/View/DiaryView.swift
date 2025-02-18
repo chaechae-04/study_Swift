@@ -53,5 +53,6 @@ struct DiaryView: View {
 }
 
 #Preview {
+//    ContentView()
     DiaryView()
 }

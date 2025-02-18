@@ -96,5 +96,5 @@ struct MonthView: View {
 }
 
 #Preview {
-    MainView()
+    ContentView()
 }

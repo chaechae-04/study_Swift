@@ -71,6 +71,5 @@ struct MainView: View {
 
 #Preview {
     ContentView()
-//    MainView()
 }
 

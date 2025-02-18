@@ -213,6 +213,5 @@ struct NewTodoItemView: View {
 }
 
 #Preview {
-//    ContentView()
     NewTodoItemView()
 }

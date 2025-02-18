@@ -105,5 +105,4 @@ struct PieChart: View {
 
 #Preview {
     ContentView()
-//    MainView()
 }
