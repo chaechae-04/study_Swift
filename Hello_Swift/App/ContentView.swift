@@ -11,6 +11,7 @@ struct ContentView: View {
     
     @StateObject private var navState = NavigationState()
     @StateObject private var alertState = AlertState()
+    @StateObject private var todoState = TodoState()
     
     @State private var splashState: SplashState = .showing
     
@@ -48,6 +49,7 @@ struct ContentView: View {
         }
         .environmentObject(navState)
         .environmentObject(alertState)
+        .environmentObject(todoState)
     }
     
     @ViewBuilder

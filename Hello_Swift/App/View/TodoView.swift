@@ -11,6 +11,7 @@ struct TodoView: View {
     
     @EnvironmentObject var navState: NavigationState
     @EnvironmentObject var alertState: AlertState
+    @EnvironmentObject var todoState: TodoState
     
     @State private var baseDate: Date = Calendar.current.date(from: DateComponents(year: 2025, month: 1, day: 1)) ?? Date()
     @State private var selectedDate: Date = Calendar.current.date(from: DateComponents(year: 2025, month: 1, day: 1)) ?? Date()
@@ -71,7 +72,7 @@ struct TodoView: View {
                             alertState.message = "\(todo.title) 의 상세 내용 페이지로 이동하겠습니까 ?"
                             
                             alertState.primaryAction = {
-                                navState.selectedTodo = todo
+                                todoState.selectedTodo = todo
                                 navState.currentScreen = .moreInfo
                             }
                             

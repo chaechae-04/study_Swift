@@ -11,8 +11,7 @@ struct TodoInfo: View {
     
     @EnvironmentObject var navState: NavigationState
     @EnvironmentObject var alertState: AlertState
-    
-    // navState.selectedTodo! : TodoModel
+    @EnvironmentObject var todoState: TodoState
     
     var body: some View {
         
@@ -27,5 +26,6 @@ struct TodoInfo: View {
 }
 
 #Preview {
-    ContentView()
+    TodoInfo()
+//    ContentView()
 }

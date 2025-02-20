@@ -24,6 +24,7 @@
 		E41F3C392D5C607A00F94CC7 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C382D5C607A00F94CC7 /* TodoItem.swift */; };
 		E41F3C3E2D6098FD00F94CC7 /* NewTodoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C3D2D6098FD00F94CC7 /* NewTodoItemView.swift */; };
 		E41F3C402D670E7E00F94CC7 /* TodoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C3F2D670E7E00F94CC7 /* TodoInfo.swift */; };
+		E41F3C422D67119A00F94CC7 /* TodoState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F3C412D67119A00F94CC7 /* TodoState.swift */; };
 		E4700AB32D54AC9E005374B3 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4700AB22D54AC9E005374B3 /* PieChart.swift */; };
 		E4700AB82D54D018005374B3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E4700AB72D54D018005374B3 /* FirebaseAnalytics */; };
 		E4700AC12D54D1C1005374B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4700AC02D54D1C1005374B3 /* GoogleService-Info.plist */; };
@@ -85,6 +86,7 @@
 		E41F3C382D5C607A00F94CC7 /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
 		E41F3C3D2D6098FD00F94CC7 /* NewTodoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTodoItemView.swift; sourceTree = "<group>"; };
 		E41F3C3F2D670E7E00F94CC7 /* TodoInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoInfo.swift; sourceTree = "<group>"; };
+		E41F3C412D67119A00F94CC7 /* TodoState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoState.swift; sourceTree = "<group>"; };
 		E4700AB22D54AC9E005374B3 /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
 		E4700AC02D54D1C1005374B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E4700AC62D54D2A4005374B3 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			children = (
 				E41F3C1E2D58EB8500F94CC7 /* NavigationState.swift */,
 				E41F3C2C2D5B3EB400F94CC7 /* AlertState.swift */,
+				E41F3C412D67119A00F94CC7 /* TodoState.swift */,
 			);
 			path = States;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				E41F3C2A2D59241000F94CC7 /* ScreenStruct.swift in Sources */,
 				E4700AD72D54E4AE005374B3 /* LoginView.swift in Sources */,
 				E4700AD02D54DBCD005374B3 /* UserDefaultsManager.swift in Sources */,
+				E41F3C422D67119A00F94CC7 /* TodoState.swift in Sources */,
 				E4700AC72D54D2A4005374B3 /* FirebaseManager.swift in Sources */,
 				E41F3C312D5B537800F94CC7 /* CustomDateSlider.swift in Sources */,
 				E41F3C392D5C607A00F94CC7 /* TodoItem.swift in Sources */,

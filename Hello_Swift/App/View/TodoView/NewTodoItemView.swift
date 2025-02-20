@@ -144,6 +144,16 @@ struct NewTodoItemView: View {
                 Button(action: {
                     
                 }) {
+                    Image(systemName: "info.square")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: ScreenSize.width * 0.075)
+                        .foregroundColor(Color.Colors.customBlack)
+                }
+                
+                Button(action: {
+                    
+                }) {
                     Image(systemName: "trash.square")
                         .resizable()
                         .scaledToFit()
