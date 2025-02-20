@@ -13,6 +13,7 @@ enum ScreenState {
     case main
     case todo
     case newTodo
+    case moreInfo
     case diary
 }
 

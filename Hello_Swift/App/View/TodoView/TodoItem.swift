@@ -13,6 +13,7 @@ struct TodoItem: View {
     
     let todo: TodoModel
     let onToggle: () -> Void
+    let detailAction: () -> Void
     let deleteAction: () -> Void
     
     var body: some View {
@@ -31,6 +32,14 @@ struct TodoItem: View {
             }
             
             Spacer()
+            
+            Button(action: detailAction) {
+                Image(systemName: "info.square")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: ScreenSize.width * 0.075)
+                    .foregroundColor(Color.Colors.customBlack)
+            }
             
             Button(action: deleteAction) {
                 Image(systemName: "trash.square")

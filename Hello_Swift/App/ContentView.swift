@@ -69,6 +69,9 @@ struct ContentView: View {
         case .newTodo:
             NewTodoItemView()
                 .transition(.opacity)
+        case .moreInfo:
+            TodoInfo()
+                .transition(.move(edge: .bottom))
         case .diary:
             DiaryView()
                 .transition(.move(edge: .leading))

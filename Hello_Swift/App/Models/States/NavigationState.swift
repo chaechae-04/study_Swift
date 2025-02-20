@@ -9,5 +9,6 @@ import Foundation
 
 class NavigationState: ObservableObject {
     @Published var currentScreen: ScreenState = .logIn
+    @Published var selectedTodo: TodoModel?
 }
 

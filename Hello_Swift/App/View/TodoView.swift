@@ -63,6 +63,18 @@ struct TodoView: View {
                                     print("Toggle failed: \(error)")
                                 }
                             }
+                        }, detailAction: {
+                            
+                            alertState.isPresented = true
+                            alertState.buttonType = .double
+                            alertState.title = "More info"
+                            alertState.message = "\(todo.title) 의 상세 내용 페이지로 이동하겠습니까 ?"
+                            
+                            alertState.primaryAction = {
+                                navState.selectedTodo = todo
+                                navState.currentScreen = .moreInfo
+                            }
+                            
                         }, deleteAction: {
                             alertState.isPresented = true
                             alertState.buttonType = .double
