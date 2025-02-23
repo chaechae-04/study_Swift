@@ -40,7 +40,7 @@ struct TodoItem: View {
                     .frame(width: ScreenSize.width * 0.075)
                     .foregroundColor(Color.Colors.customBlack)
             }
-             
+            
             Button(action: deleteAction) {
                 Image(systemName: "trash.square")
                     .resizable()
