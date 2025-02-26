@@ -11,6 +11,7 @@ struct NewTodoItemView: View {
     
     @EnvironmentObject var navState: NavigationState
     @EnvironmentObject var alertState: AlertState
+    @EnvironmentObject var todoDateState: TodoDateState
     @StateObject private var todoService = TodoService()
     
     @State private var currentField: String = ""
@@ -217,11 +218,12 @@ struct NewTodoItemView: View {
         .frame(width: ScreenSize.width * 0.9, height: ScreenSize.height * 0.9, alignment: .top)
         .onAppear {
             formatter.dateFormat = "yyyy-MM-dd HH:mm"
+            currentDate = todoDateState.selectedDate ?? Date()
             dateTime = formatter.string(from: currentDate)
         }
     }
 }
 
 #Preview {
-    NewTodoItemView()
+    ContentView()
 }

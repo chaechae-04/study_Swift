@@ -12,6 +12,7 @@ struct TodoView: View {
     @EnvironmentObject var navState: NavigationState
     @EnvironmentObject var alertState: AlertState
     @EnvironmentObject var todoState: TodoState
+    @EnvironmentObject var todoDateState: TodoDateState
     
     @State private var baseDate: Date = Calendar.current.date(from: DateComponents(year: 2025, month: 1, day: 1)) ?? Date()
     @State private var selectedDate: Date = Calendar.current.date(from: DateComponents(year: 2025, month: 1, day: 1)) ?? Date()
@@ -104,6 +105,7 @@ struct TodoView: View {
                         
                         Button(action: {
                             DispatchQueue.main.async {
+                                todoDateState.selectedDate = selectedDate
                                 navState.currentScreen = .newTodo
                             }
                         }) {
@@ -137,6 +139,7 @@ struct TodoView: View {
             .frame(width: ScreenSize.width, height: ScreenSize.height * 0.125)
             .onChange(of: selectedDate) { _, _ in
                 Task {
+                    
                     await loadTodos()
                 }
             }
